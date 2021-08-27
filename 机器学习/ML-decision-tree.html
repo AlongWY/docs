@@ -1,0 +1,356 @@
+<!DOCTYPE HTML>
+<html lang="cn" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>机器学习-决策树 - 啸雨听风</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="../favicon.svg">
+                        <link rel="shortcut icon" href="../favicon.png">
+                <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+                <link rel="stylesheet" href="../css/print.css" media="print">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="../fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../SUMMARY.html">目录</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 形式语言与自动机</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../形式语言与自动机/FLA-Base.html"><strong aria-hidden="true">1.1.</strong> 形式语言与自动机基础</a></li><li class="chapter-item expanded "><a href="../形式语言与自动机/FLA-Regular.html"><strong aria-hidden="true">1.2.</strong> 形式语言与自动机之正则语言</a></li><li class="chapter-item expanded "><a href="../形式语言与自动机/FLA-PDA.html"><strong aria-hidden="true">1.3.</strong> 形式语言与自动机之上下文无关语言</a></li><li class="chapter-item expanded "><a href="../形式语言与自动机/BNF-EBNF.html"><strong aria-hidden="true">1.4.</strong> BNF和EBNF的含义及其用法</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 算法设计与分析</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../算法设计与分析/Algorithms-Analysis.html"><strong aria-hidden="true">2.1.</strong> 算法之算法分析</a></li><li class="chapter-item expanded "><a href="../算法设计与分析/Algorithms-Greedy.html"><strong aria-hidden="true">2.2.</strong> 算法之贪心法</a></li><li class="chapter-item expanded "><a href="../算法设计与分析/Algorithms-DC.html"><strong aria-hidden="true">2.3.</strong> 算法之分治法</a></li><li class="chapter-item expanded "><a href="../算法设计与分析/Algorithms-DP.html"><strong aria-hidden="true">2.4.</strong> 算法之动态规划</a></li><li class="chapter-item expanded "><a href="../算法设计与分析/Algorithms-Search.html"><strong aria-hidden="true">2.5.</strong> 算法之搜索策略</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> 机器学习</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ML-prepare-math.html"><strong aria-hidden="true">3.1.</strong> 机器学习-数学预备知识</a></li><li class="chapter-item expanded "><a href="../机器学习/ML-decision-tree.html" class="active"><strong aria-hidden="true">3.2.</strong> 机器学习-决策树</a></li><li class="chapter-item expanded "><a href="../机器学习/ML-LogisticRegression.html"><strong aria-hidden="true">3.3.</strong> 机器学习-逻辑回归</a></li><li class="chapter-item expanded "><a href="../机器学习/ML-LinnerModel.html"><strong aria-hidden="true">3.4.</strong> 机器学习-线性模型</a></li><li class="chapter-item expanded "><a href="../机器学习/ML-GMM-Kmeans.html"><strong aria-hidden="true">3.5.</strong> 机器学习-GMM模型与EM算法</a></li><li class="chapter-item expanded "><a href="../机器学习/ML-PCA.html"><strong aria-hidden="true">3.6.</strong> 机器学习-主成分分析</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 软件构造</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../软件构造/SC-Base.html"><strong aria-hidden="true">4.1.</strong> 软件构造基础</a></li><li class="chapter-item expanded "><a href="../软件构造/SC-concept.html"><strong aria-hidden="true">4.2.</strong> 软件构造-概念辨析</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 计算机网络</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../计算机网络/about-net.html"><strong aria-hidden="true">5.1.</strong> 计算机网络基本概念</a></li><li class="chapter-item expanded "><a href="../计算机网络/linux-socket.html"><strong aria-hidden="true">5.2.</strong> Linux Socket编程</a></li><li class="chapter-item expanded "><a href="../计算机网络/wireshark.html"><strong aria-hidden="true">5.3.</strong> Wireshark解决权限问题</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> 编程语言</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">6.1.</strong> NASM</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../编程语言/using-nasm.html"><strong aria-hidden="true">6.1.1.</strong> NASM的安装与使用</a></li><li class="chapter-item expanded "><a href="../编程语言/nasm-tutorial.html"><strong aria-hidden="true">6.1.2.</strong> NASM 教程 -- 从HelloWorld说开去</a></li></ol></li><li class="chapter-item expanded "><a href="../编程语言/julia-learn.html"><strong aria-hidden="true">6.2.</strong> JuliaLang 学习</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.3.</strong> Python</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../编程语言/boost-python.html"><strong aria-hidden="true">6.3.1.</strong> Boost::Python 教程</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.4.</strong> Latex</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../编程语言/latex-circuitikz.html"><strong aria-hidden="true">6.4.1.</strong> Latex-Circuitikz绘制电路图</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.5.</strong> C/C++</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../编程语言/why-is-INT-MAX-1.html"><strong aria-hidden="true">6.5.1.</strong> 为什么是-INT_MAX-1</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.6.</strong> Markdown</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../编程语言/pandoc-markdown.html"><strong aria-hidden="true">6.6.1.</strong> Pandoc's 的 Markdown 语法拓展</a></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> 操作系统</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../操作系统/win-linux-double-system.html"><strong aria-hidden="true">7.1.</strong> 安装Windows和Linux双系统</a></li><li class="chapter-item expanded "><a href="../操作系统/install-Manjaro.html"><strong aria-hidden="true">7.2.</strong> 配置安装Linux/Manjaro</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.</strong> 杂项</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">8.1.</strong> Django</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../杂项/django-database-separate.html"><strong aria-hidden="true">8.1.1.</strong> Django 多数据库联用</a></li><li class="chapter-item expanded "><a href="../杂项/django-restfulramework-drf-haystack-whoosh.html"><strong aria-hidden="true">8.1.2.</strong> Django里使用全文搜索框架drf_haystack</a></li></ol></li><li class="chapter-item expanded "><a href="../杂项/spring-boot-start.html"><strong aria-hidden="true">8.2.</strong> Spring Boot起步</a></li><li class="chapter-item expanded "><a href="../杂项/compile-lantern.html"><strong aria-hidden="true">8.3.</strong> 编译安装不限流量的Lantern</a></li><li class="chapter-item expanded "><a href="../杂项/hexo-github.html"><strong aria-hidden="true">8.4.</strong> Travis CI + Hexo部署你的博客</a></li></ol></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">啸雨听风</h1>
+
+                    <div class="right-buttons">
+                                                <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<!-- ---
+title: 机器学习-决策树
+tags:
+  - Machine Learing
+mathjax: true
+date: 2018-09-11 22:30:42
+categories:
+  - 机器学习
+--- -->
+<h1 id="决策树"><a class="header" href="#决策树">决策树</a></h1>
+<p>决策树（decision tree）是一种基本的分类与回归方法，此处主要讨论分类的决策树。</p>
+<p>在分类问题中，表示基于特征对实例进行分类的过程，可以认为是if-then的集合，也可以认为是定义在特征空间与类空间上的条件概率分布。</p>
+<!-- more -->
+<h2 id="决策树的特点"><a class="header" href="#决策树的特点">决策树的特点</a></h2>
+<ul>
+<li>
+<p>优点：计算复杂度不高，输出结果易于理解，对中间值的缺失不敏感，可以处理不相关特征数据。</p>
+</li>
+<li>
+<p>缺点：可能会产生过度匹配的问题</p>
+</li>
+<li>
+<p>适用数据类型：数值型和标称型</p>
+</li>
+<li>
+<p>决策树学习的目标：根据给定的训练数据集构建一个决策树模型，使它能够对实例进行正确的分类。</p>
+</li>
+<li>
+<p>决策树学习的本质：从训练集中归纳出一组分类规则，或者说是由训练数据集估计条件概率模型。</p>
+</li>
+<li>
+<p>决策树学习的损失函数：正则化的极大似然函数</p>
+</li>
+<li>
+<p>决策树学习的测试：最小化损失函数</p>
+</li>
+<li>
+<p>决策树学习的目标：在损失函数的意义下，选择最优决策树的问题。</p>
+</li>
+<li>
+<p>决策树原理和问答猜测结果游戏相似，根据一系列数据，然后给出游戏的答案。 </p>
+</li>
+</ul>
+<h2 id="决策树的建立过程"><a class="header" href="#决策树的建立过程">决策树的建立过程</a></h2>
+<p>决策树通常有三个步骤：特征选择、决策树的生成、决策树的修剪。</p>
+<p>用决策树分类：从根节点开始，对实例的某一特征进行测试，根据测试结果将实例分配到其子节点，此时每个子节点对应着该特征的一个取值，如此递归的对实例进行测试并分配，直到到达叶节点，最后将实例分到叶节点的类中。</p>
+<h2 id="使用决策树做预测"><a class="header" href="#使用决策树做预测">使用决策树做预测</a></h2>
+<ol>
+<li>收集数据：可以使用任何方法。比如想构建一个相亲系统，我们可以从媒婆那里，或者通过参访相亲对象获取数据。根据他们考虑的因素和最终的选择结果，就可以得到一些供我们利用的数据了。</li>
+<li>准备数据：收集完的数据，我们要进行整理，将这些所有收集的信息按照一定规则整理出来，并排版，方便我们进行后续处理。</li>
+<li>分析数据：可以使用任何方法，决策树构造完成之后，我们可以检查决策树图形是否符合预期。</li>
+<li>训练算法：这个过程也就是构造决策树，同样也可以说是决策树学习，就是构造一个决策树的数据结构。</li>
+<li>测试算法：使用经验树计算错误率。当错误率达到了可接收范围，这个决策树就可以投放使用了。</li>
+<li>使用算法：此步骤可以使用适用于任何监督学习算法，而使用决策树可以更好地理解数据的内在含义。</li>
+</ol>
+<h1 id="数学知识储备"><a class="header" href="#数学知识储备">数学知识储备</a></h1>
+<p>请参考{% post_link ML-prepare-math 机器学习数学预备知识 %}。</p>
+<h1 id="决策树的构造"><a class="header" href="#决策树的构造">决策树的构造</a></h1>
+<p>决策树学习的算法通常是一个递归地选择最优特征，并根据该特征对训练数据进行分割，使得各个子数据集有一个最好的分类的过程。这一过程对应着对特征空间的划分，也对应着决策树的构建。</p>
+<ol>
+<li>开始：构建根节点，将所有训练数据都放在根节点，选择一个最优特征，按着这一特征将训练数据集分割成子集，使得各个子集有一个在当前条件下最好的分类。</li>
+<li>如果这些子集已经能够被基本正确分类，那么构建叶节点，并将这些子集分到所对应的叶节点去。</li>
+<li>如果还有子集不能够被正确的分类，那么就对这些子集选择新的最优特征，继续对其进行分割，构建相应的节点，如果递归进行，直至所有训练数据子集被基本正确的分类，或者没有合适的特征为止。</li>
+<li>每个子集都被分到叶节点上，即都有了明确的类，这样就生成了一颗决策树。</li>
+</ol>
+<hr />
+<p><strong>没有代码的说教都是耍流氓！！！</strong></p>
+<p>下面给出具体实现(以信息增益作为划分标准)：</p>
+<pre><code class="language-julia">using DataFrames, CSV;
+
+function calcEnt(datasets)
+    num_samples = size(datasets,1)
+    label_counts = Dict()
+    for label in datasets[end]
+        if label in keys(label_counts)
+            label_counts[label] += 1
+        else
+            label_counts[label] = 1
+        end
+    end
+    # &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1em;vertical-align:-0.25em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot; style=&quot;margin-right:0.05764em;&quot;&gt;E&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot; style=&quot;margin-right:0.02778em;&quot;&gt;D&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2777777777777778em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mrel&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2777777777777778em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1.185818em;vertical-align:-0.43581800000000004em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;−&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.16666666666666666em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mop&quot;&gt;&lt;span class=&quot;mop op-symbol small-op&quot; style=&quot;position:relative;top:-0.0000050000000000050004em;&quot;&gt;∑&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.17862099999999992em;&quot;&gt;&lt;span style=&quot;top:-2.40029em;margin-left:0em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathnormal mtight&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;mrel mtight&quot;&gt;∈&lt;/span&gt;&lt;span class=&quot;mord mathnormal mtight&quot; style=&quot;margin-right:0.13889em;&quot;&gt;P&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.43581800000000004em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.16666666666666666em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot; style=&quot;margin-right:0.01968em;&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathnormal&quot; style=&quot;margin-right:0.03588em;&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.30110799999999993em;&quot;&gt;&lt;span style=&quot;top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.15em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+    return - sum([p * log2(p) for p in values(label_counts) ./ num_samples ])
+end
+
+function calcGain(datasets,class,ent = calcEnt(datasets))
+    num_samples = size(datasets,1)
+    groups = groupby(datasets, class)
+    entries = [(size(subsets,1),calcEnt(subsets)) for subsets in groups]
+    # &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1em;vertical-align:-0.25em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;G&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot; style=&quot;margin-right:0.02778em;&quot;&gt;D&lt;/span&gt;&lt;span class=&quot;mpunct&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.16666666666666666em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2777777777777778em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mrel&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2777777777777778em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1em;vertical-align:-0.25em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot; style=&quot;margin-right:0.05764em;&quot;&gt;E&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot; style=&quot;margin-right:0.02778em;&quot;&gt;D&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222222222222222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;−&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222222222222222em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1.53em;vertical-align:-0.52em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mop&quot;&gt;&lt;span class=&quot;mop op-symbol small-op&quot; style=&quot;position:relative;top:-0.0000050000000000050004em;&quot;&gt;∑&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.17862099999999992em;&quot;&gt;&lt;span style=&quot;top:-2.40029em;margin-left:0em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathnormal mtight&quot; style=&quot;margin-right:0.03588em;&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;mrel mtight&quot;&gt;∈&lt;/span&gt;&lt;span class=&quot;mord mathnormal mtight&quot; style=&quot;margin-right:0.22222em;&quot;&gt;V&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.32708000000000004em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.16666666666666666em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mopen nulldelimiter&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mfrac&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:1.01em;&quot;&gt;&lt;span style=&quot;top:-2.655em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;∣&lt;/span&gt;&lt;span class=&quot;mord mathnormal mtight&quot; style=&quot;margin-right:0.02778em;&quot;&gt;D&lt;/span&gt;&lt;span class=&quot;mord mtight&quot;&gt;∣&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.23em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;frac-line&quot; style=&quot;border-bottom-width:0.04em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.485em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;∣&lt;/span&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathnormal mtight&quot; style=&quot;margin-right:0.02778em;&quot;&gt;D&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.7385428571428572em;&quot;&gt;&lt;span style=&quot;top:-2.931em;margin-right:0.07142857142857144em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.5em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size3 size1 mtight&quot;&gt;&lt;span class=&quot;mord mathnormal mtight&quot; style=&quot;margin-right:0.03588em;&quot;&gt;v&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mord mtight&quot;&gt;∣&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.52em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mclose nulldelimiter&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot; style=&quot;margin-right:0.05764em;&quot;&gt;E&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathnormal&quot; style=&quot;margin-right:0.02778em;&quot;&gt;D&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.664392em;&quot;&gt;&lt;span style=&quot;top:-3.063em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mathnormal mtight&quot; style=&quot;margin-right:0.03588em;&quot;&gt;v&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+    return ent - sum([group_size / num_samples * grout_ent for (group_size,grout_ent) in entries])
+end
+
+function createTree(datasets,classes = names(datasets))
+    groups = groupby(datasets,classes[end])
+    if length(groups) == 1          # 取出分类标签（好瓜/坏瓜），如果只有一种，不需要继续分割
+        return groups[end][end][end]
+    end
+    if length(classes) == 1         # 没有别的类别可以用来分割，取概率最大的分类标签
+        max_group = groups[1]
+        for group in groups[2:end-1]
+            if length(group) &gt; length(max_group)
+                max_group = group
+            end
+        end
+        return max_group[end][end]
+    end
+
+    best_class = classes[1]         # 取出最好的分类类别，即信息增益最大的类别
+    best_gain = calcGain(datasets,best_class)
+    for class in classes[1:end-1]
+        curr_gain = calcGain(datasets,class)
+        if curr_gain &gt; best_gain
+            best_class = class
+            best_gain = curr_gain
+        end
+    end
+
+    new_classes = copy(classes)     # 递归调用，下一个分支需要用到的分类标签
+    filter!(x-&gt;x!=best_class, new_classes)   # 由于julia传引用，需要拷贝一份
+    best_class_label = Set(datasets[best_class])
+    tree = Dict(best_class =&gt; Dict())
+
+    # 遍历该类别标准下所有子分类，递归求解
+    for group in groupby(datasets,best_class)
+        tree[best_class][group[best_class][1]] = createTree(group,new_classes)
+    end
+
+    return tree
+end
+
+# 这里使用的是西瓜书 西瓜数据集2.0
+datasets = CSV.read(&quot;2.0.csv&quot;);
+tree = createTree(datasets)
+</code></pre>
+<p><a href="ML-decision-tree/2.0.csv">数据集奉上</a>!</p>
+<h1 id="决策树的存储"><a class="header" href="#决策树的存储">决策树的存储</a></h1>
+<pre><code>using Serialization;
+
+# 保存
+stream = open(&quot;Work/ML/tree.data&quot;,&quot;w&quot;)
+serialize(stream,tree)
+close(stream)
+
+# 读取
+stream = open(&quot;Work/ML/tree.data&quot;,&quot;r&quot;)
+read_tree = deserialize(stream)
+</code></pre>
+<p>Todo List:</p>
+<ul>
+<li>决策树的剪枝</li>
+<li>决策树的使用</li>
+</ul>
+<p>Change List:</p>
+<ul>
+<li>2018/9/12 : 补充了代码实现</li>
+<li>2018/9/13 : 添加了决策树的存储</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="../机器学习/ML-prepare-math.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="../机器学习/ML-LogisticRegression.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="../机器学习/ML-prepare-math.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="../机器学习/ML-LogisticRegression.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+                <script type="text/javascript" src="../mermaid.min.js"></script>
+                <script type="text/javascript" src="../mermaid-init.js"></script>
+        
+        
+    </body>
+</html>

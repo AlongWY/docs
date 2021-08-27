@@ -1,0 +1,326 @@
+<!DOCTYPE HTML>
+<html lang="cn" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>软件构造-概念辨析 - 啸雨听风</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="../favicon.svg">
+                        <link rel="shortcut icon" href="../favicon.png">
+                <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+                <link rel="stylesheet" href="../css/print.css" media="print">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="../fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../SUMMARY.html">目录</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 形式语言与自动机</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../形式语言与自动机/FLA-Base.html"><strong aria-hidden="true">1.1.</strong> 形式语言与自动机基础</a></li><li class="chapter-item expanded "><a href="../形式语言与自动机/FLA-Regular.html"><strong aria-hidden="true">1.2.</strong> 形式语言与自动机之正则语言</a></li><li class="chapter-item expanded "><a href="../形式语言与自动机/FLA-PDA.html"><strong aria-hidden="true">1.3.</strong> 形式语言与自动机之上下文无关语言</a></li><li class="chapter-item expanded "><a href="../形式语言与自动机/BNF-EBNF.html"><strong aria-hidden="true">1.4.</strong> BNF和EBNF的含义及其用法</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 算法设计与分析</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../算法设计与分析/Algorithms-Analysis.html"><strong aria-hidden="true">2.1.</strong> 算法之算法分析</a></li><li class="chapter-item expanded "><a href="../算法设计与分析/Algorithms-Greedy.html"><strong aria-hidden="true">2.2.</strong> 算法之贪心法</a></li><li class="chapter-item expanded "><a href="../算法设计与分析/Algorithms-DC.html"><strong aria-hidden="true">2.3.</strong> 算法之分治法</a></li><li class="chapter-item expanded "><a href="../算法设计与分析/Algorithms-DP.html"><strong aria-hidden="true">2.4.</strong> 算法之动态规划</a></li><li class="chapter-item expanded "><a href="../算法设计与分析/Algorithms-Search.html"><strong aria-hidden="true">2.5.</strong> 算法之搜索策略</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> 机器学习</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../机器学习/ML-prepare-math.html"><strong aria-hidden="true">3.1.</strong> 机器学习-数学预备知识</a></li><li class="chapter-item expanded "><a href="../机器学习/ML-decision-tree.html"><strong aria-hidden="true">3.2.</strong> 机器学习-决策树</a></li><li class="chapter-item expanded "><a href="../机器学习/ML-LogisticRegression.html"><strong aria-hidden="true">3.3.</strong> 机器学习-逻辑回归</a></li><li class="chapter-item expanded "><a href="../机器学习/ML-LinnerModel.html"><strong aria-hidden="true">3.4.</strong> 机器学习-线性模型</a></li><li class="chapter-item expanded "><a href="../机器学习/ML-GMM-Kmeans.html"><strong aria-hidden="true">3.5.</strong> 机器学习-GMM模型与EM算法</a></li><li class="chapter-item expanded "><a href="../机器学习/ML-PCA.html"><strong aria-hidden="true">3.6.</strong> 机器学习-主成分分析</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 软件构造</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../软件构造/SC-Base.html"><strong aria-hidden="true">4.1.</strong> 软件构造基础</a></li><li class="chapter-item expanded "><a href="../软件构造/SC-concept.html" class="active"><strong aria-hidden="true">4.2.</strong> 软件构造-概念辨析</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 计算机网络</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../计算机网络/about-net.html"><strong aria-hidden="true">5.1.</strong> 计算机网络基本概念</a></li><li class="chapter-item expanded "><a href="../计算机网络/linux-socket.html"><strong aria-hidden="true">5.2.</strong> Linux Socket编程</a></li><li class="chapter-item expanded "><a href="../计算机网络/wireshark.html"><strong aria-hidden="true">5.3.</strong> Wireshark解决权限问题</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> 编程语言</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">6.1.</strong> NASM</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../编程语言/using-nasm.html"><strong aria-hidden="true">6.1.1.</strong> NASM的安装与使用</a></li><li class="chapter-item expanded "><a href="../编程语言/nasm-tutorial.html"><strong aria-hidden="true">6.1.2.</strong> NASM 教程 -- 从HelloWorld说开去</a></li></ol></li><li class="chapter-item expanded "><a href="../编程语言/julia-learn.html"><strong aria-hidden="true">6.2.</strong> JuliaLang 学习</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.3.</strong> Python</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../编程语言/boost-python.html"><strong aria-hidden="true">6.3.1.</strong> Boost::Python 教程</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.4.</strong> Latex</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../编程语言/latex-circuitikz.html"><strong aria-hidden="true">6.4.1.</strong> Latex-Circuitikz绘制电路图</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.5.</strong> C/C++</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../编程语言/why-is-INT-MAX-1.html"><strong aria-hidden="true">6.5.1.</strong> 为什么是-INT_MAX-1</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.6.</strong> Markdown</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../编程语言/pandoc-markdown.html"><strong aria-hidden="true">6.6.1.</strong> Pandoc's 的 Markdown 语法拓展</a></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> 操作系统</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../操作系统/win-linux-double-system.html"><strong aria-hidden="true">7.1.</strong> 安装Windows和Linux双系统</a></li><li class="chapter-item expanded "><a href="../操作系统/install-Manjaro.html"><strong aria-hidden="true">7.2.</strong> 配置安装Linux/Manjaro</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.</strong> 杂项</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">8.1.</strong> Django</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../杂项/django-database-separate.html"><strong aria-hidden="true">8.1.1.</strong> Django 多数据库联用</a></li><li class="chapter-item expanded "><a href="../杂项/django-restfulramework-drf-haystack-whoosh.html"><strong aria-hidden="true">8.1.2.</strong> Django里使用全文搜索框架drf_haystack</a></li></ol></li><li class="chapter-item expanded "><a href="../杂项/spring-boot-start.html"><strong aria-hidden="true">8.2.</strong> Spring Boot起步</a></li><li class="chapter-item expanded "><a href="../杂项/compile-lantern.html"><strong aria-hidden="true">8.3.</strong> 编译安装不限流量的Lantern</a></li><li class="chapter-item expanded "><a href="../杂项/hexo-github.html"><strong aria-hidden="true">8.4.</strong> Travis CI + Hexo部署你的博客</a></li></ol></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">啸雨听风</h1>
+
+                    <div class="right-buttons">
+                                                <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<!-- ---
+title: 软件构造-概念辨析
+tags:
+  - Software Construction
+date: 2018-06-12 21:54:52
+categories: 软件构造
+--- -->
+<h1 id="概念辨析"><a class="header" href="#概念辨析">概念辨析</a></h1>
+<p>在课程的学习中，有一些概念难以理解，以下进行记录。</p>
+<!-- more -->
+<h1 id="静态检查动态检查无检查"><a class="header" href="#静态检查动态检查无检查">静态检查、动态检查、无检查</a></h1>
+<p>个人认为静态检查是<strong>编译期的检查</strong>、动态检查是<strong>运行期所做的检查</strong>、无检查是指虽然没有编译时或者运行时错误，但是有<strong>语义错误</strong>，也就是没有得到期望的结果。</p>
+<p><strong>静态检查</strong>：通常是语法错误的检查，包括标点错误、关键词错误、名字错误、参数数目或者类型错误、返回类型错误。</p>
+<p><strong>动态检查</strong>：指程序运行期间的检查，我更倾向于称之为错误，比如除零错误、数组越界、空指针解引用访问等等。</p>
+<p><strong>无检查</strong>：这些一般是由于程序员不了解语言的特性产生的错误或者语义错误。</p>
+<pre><code class="language-c++">  // expect 2.5 but get 2
+  float a = 5/2;
+  // the num overflow
+  int big = 200000 * 200000;
+  // want n*n*n but get n*n*n*n
+  int n3(int n){
+    return n*n*n*n;
+  }
+</code></pre>
+<h1 id="可变性mutability-vs-不可变性immutability"><a class="header" href="#可变性mutability-vs-不可变性immutability">可变性(Mutability) VS 不可变性(Immutability)</a></h1>
+<p>Note：Java是传值还是传引用？这个问题个人认为是传值，而不是传引用，但是很多时候，Java表现出了传引用的一些表现。比如说：</p>
+<pre><code class="language-java">  static void change(StringBuilder b) {
+    b.append(&quot;a&quot;);
+  }
+
+  public static void main(String[] args) {
+    StringBuilder builder = new StringBuilder(&quot;a&quot;);
+    System.out.println(builder);  &quot;a&quot;
+    change(builder);
+    System.out.println(builder);  &quot;b&quot;
+  }
+</code></pre>
+<p>看上去是引用传递，但实际上不是，如果说是引用传递的话，这段代码的行为就不对了：</p>
+<pre><code class="language-java">  static void swap(String a, String b) {
+    String c = a;
+    a = b;
+    b = c;
+  }
+
+  public static void main(String[] args) {
+    String a = &quot;A&quot;;
+    String b = &quot;B&quot;;
+    swap(a, b);
+    System.out.println(&quot;a:&quot; + a); // &quot;A&quot;
+    System.out.println(&quot;b:&quot; + b); // &quot;B&quot;
+  }
+</code></pre>
+<p>这段代码的执行结果并没有起到交换的效果，那为什么会在这样呢？我认为Java传入的是对象的引用地址，也就是说，形参和实参的地址是相同的，所以当我们在函数里面改变对象的值也会连带者改变外面的对象的值，但是我们想要改变它所引用的对象确实不可能了。</p>
+<p>得出结论：Java中的<strong>非原始类型</strong>都是<strong>指针</strong>。</p>
+<h2 id="变量的可变性"><a class="header" href="#变量的可变性">变量的可变性</a></h2>
+<p>一种是值可变，一种是引用可变。值的变化是指名字所引用的内存空间里面的数据发生改变，引用的变化则是指名字的内存指向发生了变化，从一个位置指向了另一个位置。</p>
+<p>使用两种语言做实例：</p>
+<pre><code class="language-c++">  int a1 = 5; // 值可变
+  const int a2 = 5; // 值不可变
+
+  char s = 'a';
+  const char* p1 = &amp;s; // 引用可变，值不可变，可以指向别的位置，但是不能修改其中的内容
+  char* const p2 = &amp;s; // 引用不可变，值可变，可以修改其中的值，但是不能指向别的位置
+  const char* const p3 = &amp;s; // 引用不可变，值也不可变
+</code></pre>
+<pre><code class="language-java">  int a1 = 5; // 值可变
+  final int a2 = 5; // 值不可变
+
+  String s1 = &quot;a&quot;; // 值不可变，引用可变
+  final String s2 = s1; // 值不可变，引用可变
+  final StringBuilder s3 = s1; // 引用不可变，值可变
+</code></pre>
+<h1 id="类型的可变性"><a class="header" href="#类型的可变性">类型的可变性</a></h1>
+<p>可变类型：该类型的对象创建之后，仍然可以修改所创建的对象的值，如StringBuilder、List等。</p>
+<p>不可变类型：该类型的对象一旦创建，里面的值就不再变化，如String。</p>
+<h1 id="不变量invariants"><a class="header" href="#不变量invariants">不变量(Invariants)</a></h1>
+<p>不变量是一种属性,它在程序运行的时候总是一种状态,而不变性就是其中的一种:一旦一个不可变类型的对象被创建，它总是代表一个不变的值。当一个ADT能够确保它内部的不变量恒定不变(不受使用者/外部影响),我们就说这个ADT保护/保留自己的不变量。</p>
+<h1 id="表示暴露representation-exposure"><a class="header" href="#表示暴露representation-exposure">表示暴露(Representation Exposure)</a></h1>
+<p>如果类外部的代码可以直接修改类内部存储的数据,那么我们就称之为表示暴露。避免标识暴露的几个方法：</p>
+<ol>
+<li>使用final关键字，将内部的数据表示为final，可以避免对象引用的更改。</li>
+<li>将变量声明为private的，这样就只给了外部有限的访问能力，单这里需要注意的是，对外暴露的是内部对象的引用还是拷贝，如果内部对象是可变的，那么仍然是隐患。</li>
+<li>创建对象时的引用，如果创建对象的时候引用的是一个可变对象，那么外部对象的更改仍然对类有影响，可以考虑防御式复制或者使用不可变对象。</li>
+</ol>
+<h1 id="表示不变量representation-invariants和抽象函数abstraction-function"><a class="header" href="#表示不变量representation-invariants和抽象函数abstraction-function">表示不变量(Representation Invariants)和抽象函数(abstraction function)</a></h1>
+<p>抽象域：类型设计时需要被支持的值，使用者所关心的抽象类型。</p>
+<p>表示域：抽象域的具体实现，实现者在对抽象域的对象进行实现的时候的具体表示。</p>
+<p>表示不变量：示值到布尔值的映射:RI : R → boolean。对于表示值r,当且仅当r被AF映射到了A,RI(r)为真。换句话说,RI告诉了我们哪些表示值是“良好组织”的，即是否为合法的表示值。</p>
+<p>抽象函数：是表示值到其对应的抽象值的映射:AF : R → A。这种映射是满射,但不一定是单射(不一定是双射)。对于AF(抽象函数)来说,仅仅宽泛的说抽象域表示了什么并不够。抽象函数的作用是规定合法的表示值会如何被解释到抽象域。作为一个函数,我们应该清晰的知道从一个输入到一个输入是怎么对应的。</p>
+<hr />
+<p>比如大数的实现，对于使用者来说，抽象域集合就是所有可能的整数，而对于实现者来说，既可以用整数数组来表示也可以用字符串来进行表示，那么整数数组或者字符串就是表示域。</p>
+<h1 id="例子"><a class="header" href="#例子">例子</a></h1>
+<pre><code class="language-java">// Immutable type representing a tweet.
+// 不可变类型表示的tweet
+public class Tweet {
+  private final String author;
+  private final String text;
+  private final Date timestamp;
+
+  // Rep invariant:
+  // 所谓的表示不变量，其实就是内部的数据结构的组成部分都表示了tweet的什么部分
+  //    author is a Twitter username (a nonempty string of letters, digits, underscores)
+  //    text.length &lt;= 140
+  // Abstraction function:
+  // 所谓的抽象函数，就是这个类型所表示的是个什么东西，当然，要给出类型的哪些东西表示的
+  //    AF(author, text, timestamp) = a tweet posted by author, with content text, at time timestamp
+  // Safety from rep exposure:
+  // 表示暴露安全，有这个的东西就是安全的，对象一旦产生，内部表示不会发生任何改变
+  //   下面需要对内部的所有表示进行说明，以证明确实是表示暴露安全的
+  //   All fields are private;
+  //   内部都是私有属性，那么引用的修改就不可能了
+  //   author and text are Strings, so are guaranteed immutable;
+  //   不可变类型，这说明外部不可能对他进行修改
+  //   timestamp is a mutable Date, so Tweet() constructor and getTimestamp()
+  //   可变类型需要做防御性的复制，避免外部变量引用内部变量，修改造成泄漏
+  //   make defensive copies to avoid sharing the rep's Date object with clients.
+
+  // Operations (specs and method bodies omitted to save space)
+  public Tweet(String author, String text, Date timestamp) { ...}
+
+  public String getAuthor() { ...}
+
+  public String getText() { ...}
+
+  public Date getTimestamp() { ...}
+}
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="../软件构造/SC-Base.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="../计算机网络/about-net.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="../软件构造/SC-Base.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="../计算机网络/about-net.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+                <script type="text/javascript" src="../mermaid.min.js"></script>
+                <script type="text/javascript" src="../mermaid-init.js"></script>
+        
+        
+    </body>
+</html>
