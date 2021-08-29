@@ -1,0 +1,428 @@
+<!DOCTYPE HTML>
+<html lang="cn" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>算法之搜索策略 - 啸雨听风</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="favicon.svg">
+                        <link rel="shortcut icon" href="favicon.png">
+                <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+                <link rel="stylesheet" href="css/print.css" media="print">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">目录</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 形式语言与自动机</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="FLA-Base.html"><strong aria-hidden="true">1.1.</strong> 形式语言与自动机基础</a></li><li class="chapter-item expanded "><a href="FLA-Regular.html"><strong aria-hidden="true">1.2.</strong> 形式语言与自动机之正则语言</a></li><li class="chapter-item expanded "><a href="FLA-PDA.html"><strong aria-hidden="true">1.3.</strong> 形式语言与自动机之上下文无关语言</a></li><li class="chapter-item expanded "><a href="BNF-EBNF.html"><strong aria-hidden="true">1.4.</strong> BNF和EBNF的含义及其用法</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 算法设计与分析</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="Algorithms-Analysis.html"><strong aria-hidden="true">2.1.</strong> 算法之算法分析</a></li><li class="chapter-item expanded "><a href="Algorithms-Greedy.html"><strong aria-hidden="true">2.2.</strong> 算法之贪心法</a></li><li class="chapter-item expanded "><a href="Algorithms-DC.html"><strong aria-hidden="true">2.3.</strong> 算法之分治法</a></li><li class="chapter-item expanded "><a href="Algorithms-DP.html"><strong aria-hidden="true">2.4.</strong> 算法之动态规划</a></li><li class="chapter-item expanded "><a href="Algorithms-Search.html" class="active"><strong aria-hidden="true">2.5.</strong> 算法之搜索策略</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> 机器学习</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="ML-prepare-math.html"><strong aria-hidden="true">3.1.</strong> 机器学习-数学预备知识</a></li><li class="chapter-item expanded "><a href="ML-decision-tree.html"><strong aria-hidden="true">3.2.</strong> 机器学习-决策树</a></li><li class="chapter-item expanded "><a href="ML-LogisticRegression.html"><strong aria-hidden="true">3.3.</strong> 机器学习-逻辑回归</a></li><li class="chapter-item expanded "><a href="ML-LinnerModel.html"><strong aria-hidden="true">3.4.</strong> 机器学习-线性模型</a></li><li class="chapter-item expanded "><a href="ML-GMM-Kmeans.html"><strong aria-hidden="true">3.5.</strong> 机器学习-GMM模型与EM算法</a></li><li class="chapter-item expanded "><a href="ML-PCA.html"><strong aria-hidden="true">3.6.</strong> 机器学习-主成分分析</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 软件构造</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="SC-Base.html"><strong aria-hidden="true">4.1.</strong> 软件构造基础</a></li><li class="chapter-item expanded "><a href="SC-concept.html"><strong aria-hidden="true">4.2.</strong> 软件构造-概念辨析</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 计算机网络</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="about-net.html"><strong aria-hidden="true">5.1.</strong> 计算机网络基本概念</a></li><li class="chapter-item expanded "><a href="linux-socket.html"><strong aria-hidden="true">5.2.</strong> Linux Socket编程</a></li><li class="chapter-item expanded "><a href="wireshark.html"><strong aria-hidden="true">5.3.</strong> Wireshark解决权限问题</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> 编程语言</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">6.1.</strong> NASM</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="using-nasm.html"><strong aria-hidden="true">6.1.1.</strong> NASM的安装与使用</a></li><li class="chapter-item expanded "><a href="nasm-tutorial.html"><strong aria-hidden="true">6.1.2.</strong> NASM 教程 -- 从HelloWorld说开去</a></li></ol></li><li class="chapter-item expanded "><a href="julia-learn.html"><strong aria-hidden="true">6.2.</strong> JuliaLang 学习</a></li><li class="chapter-item expanded "><a href="boost-python.html"><strong aria-hidden="true">6.3.</strong> Boost::Python 教程</a></li><li class="chapter-item expanded "><a href="latex-circuitikz.html"><strong aria-hidden="true">6.4.</strong> Latex-Circuitikz绘制电路图</a></li><li class="chapter-item expanded "><a href="why-is-INT-MAX-1.html"><strong aria-hidden="true">6.5.</strong> 为什么是-INT_MAX-1</a></li><li class="chapter-item expanded "><a href="pandoc-markdown.html"><strong aria-hidden="true">6.6.</strong> Pandoc's 的 Markdown 语法拓展</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> 操作系统</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="win-linux-double-system.html"><strong aria-hidden="true">7.1.</strong> 安装Windows和Linux双系统</a></li><li class="chapter-item expanded "><a href="install-Manjaro.html"><strong aria-hidden="true">7.2.</strong> 配置安装Linux/Manjaro</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.</strong> 杂项</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">8.1.</strong> Django</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="django-database-separate.html"><strong aria-hidden="true">8.1.1.</strong> Django 多数据库联用</a></li><li class="chapter-item expanded "><a href="django-restfulramework-drf-haystack-whoosh.html"><strong aria-hidden="true">8.1.2.</strong> Django里使用全文搜索框架drf_haystack</a></li></ol></li><li class="chapter-item expanded "><a href="spring-boot-start.html"><strong aria-hidden="true">8.2.</strong> Spring Boot起步</a></li><li class="chapter-item expanded "><a href="compile-lantern.html"><strong aria-hidden="true">8.3.</strong> 编译安装不限流量的Lantern</a></li><li class="chapter-item expanded "><a href="hexo-github.html"><strong aria-hidden="true">8.4.</strong> Travis CI + Hexo部署你的博客</a></li></ol></li><li class="chapter-item expanded "><a href="admin/index.html">CMS</a></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">啸雨听风</h1>
+
+                    <div class="right-buttons">
+                                                <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<hr />
+<h2 id="title-算法之搜索策略"><a class="header" href="#title-算法之搜索策略">title: 算法之搜索策略</a></h2>
+<h1 id="搜索策略"><a class="header" href="#搜索策略">搜索策略</a></h1>
+<p>搜索的本质是穷举，所谓搜索，即是按照一定的规律去穷举，选用好的搜索策略，可以让我们让我们比较快速的找到可行解或者优化解。</p>
+<!-- more -->
+<h1 id="深度优先与广度优先"><a class="header" href="#深度优先与广度优先">深度优先与广度优先</a></h1>
+<h2 id="深度优先搜索"><a class="header" href="#深度优先搜索">深度优先搜索</a></h2>
+<ol>
+<li>构造一个从根构成的单元素栈S</li>
+<li>If Top(S)是目标节点，算法结束</li>
+<li>Pop(S)，把Top(S)的子节点压栈</li>
+<li>If(S)为空搜索失败 Else goto 2</li>
+</ol>
+<h2 id="广度优先搜索"><a class="header" href="#广度优先搜索">广度优先搜索</a></h2>
+<ol>
+<li>构造一个从根构成的队列Q</li>
+<li>If Head(Q)是目标节点，算法结束</li>
+<li>Pop(Q)，把Head(Q)的子节点入队</li>
+<li>If(Q)为空搜索失败 Else goto 2</li>
+</ol>
+<h1 id="搜索的优化"><a class="header" href="#搜索的优化">搜索的优化</a></h1>
+<h2 id="爬山法"><a class="header" href="#爬山法">爬山法</a></h2>
+<ul>
+<li>在深度优先搜索过程中, 我们经常遇到多个节点可以扩展的情况, 首先扩展哪个?</li>
+<li>爬山策略使用贪心方法确定搜索的方向, 是优化的深度优先搜索策略</li>
+<li>爬山策略使用启发式测度来排序节点扩展的顺序</li>
+</ul>
+<h3 id="爬山法算法"><a class="header" href="#爬山法算法">爬山法算法</a></h3>
+<ol>
+<li>构造由根组成的单元素栈S;</li>
+<li>If Top(S)是目标节点 Then 停止;</li>
+<li>Pop(S);</li>
+<li>S的子节点按照其启发测度由大到小的顺序压入S;</li>
+<li>If S空 Then 失败 Else goto 2.</li>
+</ol>
+<h2 id="best-first搜索算法"><a class="header" href="#best-first搜索算法">Best-First搜索算法</a></h2>
+<ul>
+<li>结合深度优先和广度优先的优点</li>
+<li>根据一个评价函数, 在目前产生的所有节点中选择具有最小评价函数值的节点进行扩展.</li>
+<li>具有全局优化观念, 而爬山策略仅具有局部优化观念.</li>
+</ul>
+<h3 id="best-first算法"><a class="header" href="#best-first算法">Best-First算法</a></h3>
+<ol>
+<li>使用评价函数构造一个堆H, 首先构造由根组成的单元素堆;</li>
+<li>If H的根r是目标节点 Then 停止;</li>
+<li>从H中删除r, 把r的子节点插入H;</li>
+<li>If H空 Then 失败 Else goto 2.</li>
+</ol>
+<h2 id="分支界限"><a class="header" href="#分支界限">分支界限</a></h2>
+<ul>
+<li>上述方法很难用于求解优化问题</li>
+<li>分支界限策略可以有效地求解组合优化问题</li>
+<li>发现优化解的一个界限</li>
+<li>缩小解空间, 提高求解的效率</li>
+</ul>
+<h3 id="分支界限策略的原理"><a class="header" href="#分支界限策略的原理">分支界限策略的原理</a></h3>
+<ul>
+<li>产生分支的机制(使用前面的任意一种策略)</li>
+<li>产生一个界限(可以通过发现可能解)</li>
+<li>进行分支界限搜索, 即剪除不可能产生优化解的分支.</li>
+</ul>
+<h1 id="span-classkatexspan-classkatex-html-aria-hiddentruespan-classbasespan-classstrut-styleheight0688696emvertical-align0emspanspan-classmordspan-classmord-mathnormalaspanspan-classmsupsubspan-classvlist-tspan-classvlist-rspan-classvlist-styleheight0688696emspan-styletop-3063emmargin-right005emspan-classpstrut-styleheight27emspanspan-classsizing-reset-size6-size3-mtightspan-classmbin-mtightspanspanspanspanspanspanspanspanspanspanspan算法"><a class="header" href="#span-classkatexspan-classkatex-html-aria-hiddentruespan-classbasespan-classstrut-styleheight0688696emvertical-align0emspanspan-classmordspan-classmord-mathnormalaspanspan-classmsupsubspan-classvlist-tspan-classvlist-rspan-classvlist-styleheight0688696emspan-styletop-3063emmargin-right005emspan-classpstrut-styleheight27emspanspan-classsizing-reset-size6-size3-mtightspan-classmbin-mtightspanspanspanspanspanspanspanspanspanspanspan算法"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.688696em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span>算法</a></h1>
+<h2 id="span-classkatexspan-classkatex-html-aria-hiddentruespan-classbasespan-classstrut-styleheight0688696emvertical-align0emspanspan-classmordspan-classmord-mathnormalaspanspan-classmsupsubspan-classvlist-tspan-classvlist-rspan-classvlist-styleheight0688696emspan-styletop-3063emmargin-right005emspan-classpstrut-styleheight27emspanspan-classsizing-reset-size6-size3-mtightspan-classmbin-mtightspanspanspanspanspanspanspanspanspanspanspan算法与分支界限策略的比较"><a class="header" href="#span-classkatexspan-classkatex-html-aria-hiddentruespan-classbasespan-classstrut-styleheight0688696emvertical-align0emspanspan-classmordspan-classmord-mathnormalaspanspan-classmsupsubspan-classvlist-tspan-classvlist-rspan-classvlist-styleheight0688696emspan-styletop-3063emmargin-right005emspan-classpstrut-styleheight27emspanspan-classsizing-reset-size6-size3-mtightspan-classmbin-mtightspanspanspanspanspanspanspanspanspanspanspan算法与分支界限策略的比较"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.688696em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span>算法与分支界限策略的比较</a></h2>
+<ul>
+<li>分支界限策略是为了剪掉不能达到优化解的分支</li>
+<li>分支界限策略的关键是“界限”</li>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.688696em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span>算法的核心是告诉我们在某些情况下, 我们得到的解一定是优化解, 于是算法可以停止</li>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.688696em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span>算法试图尽早地发现优化解</li>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.688696em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span>算法经常使用Best-first策略求解优化问题</li>
+</ul>
+<h2 id="span-classkatexspan-classkatex-html-aria-hiddentruespan-classbasespan-classstrut-styleheight0688696emvertical-align0emspanspan-classmordspan-classmord-mathnormalaspanspan-classmsupsubspan-classvlist-tspan-classvlist-rspan-classvlist-styleheight0688696emspan-styletop-3063emmargin-right005emspan-classpstrut-styleheight27emspanspan-classsizing-reset-size6-size3-mtightspan-classmbin-mtightspanspanspanspanspanspanspanspanspanspanspan算法关键代价函数"><a class="header" href="#span-classkatexspan-classkatex-html-aria-hiddentruespan-classbasespan-classstrut-styleheight0688696emvertical-align0emspanspan-classmordspan-classmord-mathnormalaspanspan-classmsupsubspan-classvlist-tspan-classvlist-rspan-classvlist-styleheight0688696emspan-styletop-3063emmargin-right005emspan-classpstrut-styleheight27emspanspan-classsizing-reset-size6-size3-mtightspan-classmbin-mtightspanspanspanspanspanspanspanspanspanspanspan算法关键代价函数"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.688696em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span>算法关键—代价函数</a></h2>
+<ul>
+<li>
+<p>对于任意节点n</p>
+<ul>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span></span></span></span>从树根到n的代价</li>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">h</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span></span></span></span>从n到目标节点的优化路径的代价</li>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">h</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>是节点n的代价</li>
+</ul>
+</li>
+<li>
+<p>What is the value of h*(n)?</p>
+<ul>
+<li>不知道!</li>
+<li>于是, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>也不知道</li>
+</ul>
+</li>
+<li>
+<p>估计<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">h</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></p>
+<ul>
+<li>使用任何方法去估计<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">h</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>, 用<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">h</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>表示<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">h</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>的估计</li>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">h</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">h</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>总为真</li>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">h</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">h</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>定义为n的代价</li>
+</ul>
+</li>
+</ul>
+<h2 id="span-classkatexspan-classkatex-html-aria-hiddentruespan-classbasespan-classstrut-styleheight068333emvertical-align0emspanspan-classmord-mathnormalaspanspan-classmordspanspanspanspan算法本质已经发现的解是优化解"><a class="header" href="#span-classkatexspan-classkatex-html-aria-hiddentruespan-classbasespan-classstrut-styleheight068333emvertical-align0emspanspan-classmord-mathnormalaspanspan-classmordspanspanspanspan算法本质已经发现的解是优化解"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mord">∗</span></span></span></span>算法本质—已经发现的解是优化解</a></h2>
+<blockquote>
+<p>定理1. 使用Best-first策略搜索树, 如果<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.688696em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span>选择的节点是标节点, 则该节点表示的解是优化解.
+证明:令n是任意扩展到的节点, t是选中目标节点.往证<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span></span></span></span>是优化解代价.</p>
+<ol>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.688696em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span>算法使用Best-first策略, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>.</li>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.688696em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span>算法使用<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">h</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">h</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>估计规则, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>.</li>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></span>中必有一个为优化解的代价, 令其为<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">s</span><span class="mclose">)</span></span></span></span>. 我们有<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">s</span><span class="mclose">)</span></span></span></span>.</li>
+<li>t是目标节点<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">h</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>, 所以<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">h</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">s</span><span class="mclose">)</span></span></span></span>.</li>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span></span></span></span>是一个可能解, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">s</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">s</span><span class="mclose">)</span></span></span></span>.</li>
+</ol>
+</blockquote>
+<h2 id="span-classkatexspan-classkatex-html-aria-hiddentruespan-classbasespan-classstrut-styleheight068333emvertical-align0emspanspan-classmord-mathnormalaspanspan-classmordspanspanspanspan算法的规则"><a class="header" href="#span-classkatexspan-classkatex-html-aria-hiddentruespan-classbasespan-classstrut-styleheight068333emvertical-align0emspanspan-classmord-mathnormalaspanspan-classmordspanspanspanspan算法的规则"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mord">∗</span></span></span></span>算法的规则</a></h2>
+<ol>
+<li>使用Best-first策略搜索树;</li>
+<li>节点n的代价函数为<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">h</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>是从根到n的路径代价, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">h</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>是从n到某个目标节点的优化路径代价;</li>
+<li>对于所有n, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">h</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">h</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>;</li>
+<li>当选择到的节点是目标节点时, 算法停止,返回一个优化解.</li>
+</ol>
+<h1 id="习题"><a class="header" href="#习题">习题</a></h1>
+<blockquote>
+<p>设计搜索算法求解最大团问题，输入是一个图，输出是这个图最大的全连通子图</p>
+</blockquote>
+<p>解：使用优先队列分支界限算法。</p>
+<ul>
+<li>
+<p>问题空间(Input)：<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">G</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mclose">)</span></span></span></span></p>
+</li>
+<li>
+<p>解空间(Output)：<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.887862em;vertical-align:-0.13597em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">⊆</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span></p>
+<ul>
+<li>约束函数：团的定义</li>
+<li>目标函数：所含顶点数最多</li>
+</ul>
+</li>
+<li>
+<p>解空间树(所有可能解的结构)：</p>
+<ul>
+<li>子集数(因为这是一个子集选取问题)</li>
+</ul>
+</li>
+<li>
+<p>搜索空间(最优解的求解过程)：</p>
+<ul>
+<li>约束函数:顶点i到已选入的顶点集中每一个顶点都有边相连</li>
+<li>限界函数:有足够多的可选择顶点使得算法有可能在右子树中找到更大的团。</li>
+</ul>
+</li>
+<li>
+<p>剪枝</p>
+<ul>
+<li>左子树：从顶点i到已选入的顶点集中每一个顶点都有边，否则剪枝</li>
+<li>右子树：顶点数上界小于当前最优值时剪枝</li>
+</ul>
+</li>
+<li>
+<p>优先队列中节点的优先级</p>
+<ul>
+<li>顶点数上界(顶点数上界=已确定的顶点数+未确定的顶点数的上界)</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>设计搜索算法求解最大独立子集合问题，输入一个图，输入这个图的最大顶点集合，满足该集合中任意两个顶点之间都不存在边</p>
+</blockquote>
+<p>解：求原图的补图，而后求补图的最大团即可。</p>
+<blockquote>
+<p>设计搜索算法求解有向图的强连通分量问题，输入一个图，输出这个图的所有强连通分量</p>
+</blockquote>
+<pre><code class="language-c++">void tarjan(int u){
+    DFN[u]=LOW[u]=++time; //次序从1开始，初始时由于默认将DFN[u]=LOW[u]都置为次序号
+    // 将当前节点压栈，置位在栈中，已访问。
+    visit[u]=true;
+    s.push(u);
+    instack[u]=true;
+
+    //取u节点的下一路径节点v,当没有v可取时也说明深度搜索已经到达当前最底部，这是我们函数返回寻找另一条路径。
+    for(int j=0;j&lt;G[u].size();j++){
+        int v=G[u][j];
+        if(!visit[v]){
+            tarjan(v);
+            // 在深度搜索返回时，如果v节点下存在子树，要将u节点的LOW[u]更新。
+            LOW[u]=min(LOW[u],LOW[v]);
+        }
+        else if(instack[v]){
+            // v节点已经被访问，并且在栈中，说明在当前路径上存在环，此处只是赋值，但并不代表在u子树的底下的多个节点没有比当前环更大的环。无法作为深度终止条件。
+            LOW[u]=min(LOW[u],DFN[v]);
+        }
+    }
+
+    int m;
+    int num=0; //对一个环计数计数
+    // 在深度搜索完结后返回时，判断DFN[u]==LOW[u]，相等说明找到了一个环，将栈中节点弹出。注意tarjan算法认为单个节点也为环。
+    if(DFN[u]==LOW[u]){
+        // 将栈中节点弹出，并计数
+        do{
+            m=s.top();
+            s.pop();
+            instack[m]=false;
+            num++;
+        }while(m!=u);
+        // 只有环内节点数大于两个才是真正环。
+        if(num&gt;1){
+            // n个点两两相交（互相到达），则有n*(n-1)/2条连接线
+            total+=num*(num-1)/2;
+        }
+    }
+}
+</code></pre>
+<blockquote>
+<p>设计搜索算法求解子图匹配问题，输入:图G和图P，输出:图G是否包含和P同构的子图</p>
+</blockquote>
+<p>解：搜索同构序列，在G中搜索一个点序列，与P图的点的序列一致即可。</p>
+<blockquote>
+<p>设计搜索算法求解0-1背包问题，即给定一个容量为C的背包和n个物品，其中每个物品i的重量为<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.02691em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, 价格为<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，要求物品的重量之和小于C，且价格之和最大。</p>
+</blockquote>
+<p>解：搜索树是物品放入还是不放入，可以使用价值进行剪枝。</p>
+<blockquote>
+<p>证明KMP算法的正确性</p>
+</blockquote>
+<p>解：略。</p>
+<blockquote>
+<p>扩展Rabin-karp算法，设计一个矩阵匹配算法，即输入矩阵A和矩阵B，找到矩阵A中和矩阵B匹配的子阵。</p>
+</blockquote>
+<p>解：使用指纹匹配，对每个形如矩阵B大小的子矩阵计算Hash。</p>
+<blockquote>
+<p>给定一棵树T，在每条边上有一个标签，该标签包含一个或多个字符，给定一个模式P，T中子路径的标签定义为该路径上所有边上标签依次相连得到的字符串，问题是找到所有从根出发路径的子路径，其标签和P匹配。要求运行时间和树中所有标签的字符数与P长度之和相等。</p>
+</blockquote>
+<p>解：深度优先搜索？</p>
+<blockquote>
+<p>给出一个例子，令Robin-karp算法的时间复杂度为O(mn)其中m是模式的长度，n是字符串长度，要说明例子并证明这个时间复杂度。</p>
+</blockquote>
+<p>解：Hash相同，但是字符串不相同。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="Algorithms-DP.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="ML-prepare-math.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="Algorithms-DP.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="ML-prepare-math.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+                <script type="text/javascript" src="mermaid.min.js"></script>
+                <script type="text/javascript" src="mermaid-init.js"></script>
+        
+        
+    </body>
+</html>

@@ -1,0 +1,1124 @@
+<!DOCTYPE HTML>
+<html lang="cn" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>JuliaLang 学习 - 啸雨听风</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="favicon.svg">
+                        <link rel="shortcut icon" href="favicon.png">
+                <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+                <link rel="stylesheet" href="css/print.css" media="print">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">目录</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 形式语言与自动机</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="FLA-Base.html"><strong aria-hidden="true">1.1.</strong> 形式语言与自动机基础</a></li><li class="chapter-item expanded "><a href="FLA-Regular.html"><strong aria-hidden="true">1.2.</strong> 形式语言与自动机之正则语言</a></li><li class="chapter-item expanded "><a href="FLA-PDA.html"><strong aria-hidden="true">1.3.</strong> 形式语言与自动机之上下文无关语言</a></li><li class="chapter-item expanded "><a href="BNF-EBNF.html"><strong aria-hidden="true">1.4.</strong> BNF和EBNF的含义及其用法</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 算法设计与分析</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="Algorithms-Analysis.html"><strong aria-hidden="true">2.1.</strong> 算法之算法分析</a></li><li class="chapter-item expanded "><a href="Algorithms-Greedy.html"><strong aria-hidden="true">2.2.</strong> 算法之贪心法</a></li><li class="chapter-item expanded "><a href="Algorithms-DC.html"><strong aria-hidden="true">2.3.</strong> 算法之分治法</a></li><li class="chapter-item expanded "><a href="Algorithms-DP.html"><strong aria-hidden="true">2.4.</strong> 算法之动态规划</a></li><li class="chapter-item expanded "><a href="Algorithms-Search.html"><strong aria-hidden="true">2.5.</strong> 算法之搜索策略</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> 机器学习</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="ML-prepare-math.html"><strong aria-hidden="true">3.1.</strong> 机器学习-数学预备知识</a></li><li class="chapter-item expanded "><a href="ML-decision-tree.html"><strong aria-hidden="true">3.2.</strong> 机器学习-决策树</a></li><li class="chapter-item expanded "><a href="ML-LogisticRegression.html"><strong aria-hidden="true">3.3.</strong> 机器学习-逻辑回归</a></li><li class="chapter-item expanded "><a href="ML-LinnerModel.html"><strong aria-hidden="true">3.4.</strong> 机器学习-线性模型</a></li><li class="chapter-item expanded "><a href="ML-GMM-Kmeans.html"><strong aria-hidden="true">3.5.</strong> 机器学习-GMM模型与EM算法</a></li><li class="chapter-item expanded "><a href="ML-PCA.html"><strong aria-hidden="true">3.6.</strong> 机器学习-主成分分析</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 软件构造</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="SC-Base.html"><strong aria-hidden="true">4.1.</strong> 软件构造基础</a></li><li class="chapter-item expanded "><a href="SC-concept.html"><strong aria-hidden="true">4.2.</strong> 软件构造-概念辨析</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 计算机网络</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="about-net.html"><strong aria-hidden="true">5.1.</strong> 计算机网络基本概念</a></li><li class="chapter-item expanded "><a href="linux-socket.html"><strong aria-hidden="true">5.2.</strong> Linux Socket编程</a></li><li class="chapter-item expanded "><a href="wireshark.html"><strong aria-hidden="true">5.3.</strong> Wireshark解决权限问题</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> 编程语言</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">6.1.</strong> NASM</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="using-nasm.html"><strong aria-hidden="true">6.1.1.</strong> NASM的安装与使用</a></li><li class="chapter-item expanded "><a href="nasm-tutorial.html"><strong aria-hidden="true">6.1.2.</strong> NASM 教程 -- 从HelloWorld说开去</a></li></ol></li><li class="chapter-item expanded "><a href="julia-learn.html" class="active"><strong aria-hidden="true">6.2.</strong> JuliaLang 学习</a></li><li class="chapter-item expanded "><a href="boost-python.html"><strong aria-hidden="true">6.3.</strong> Boost::Python 教程</a></li><li class="chapter-item expanded "><a href="latex-circuitikz.html"><strong aria-hidden="true">6.4.</strong> Latex-Circuitikz绘制电路图</a></li><li class="chapter-item expanded "><a href="why-is-INT-MAX-1.html"><strong aria-hidden="true">6.5.</strong> 为什么是-INT_MAX-1</a></li><li class="chapter-item expanded "><a href="pandoc-markdown.html"><strong aria-hidden="true">6.6.</strong> Pandoc's 的 Markdown 语法拓展</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> 操作系统</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="win-linux-double-system.html"><strong aria-hidden="true">7.1.</strong> 安装Windows和Linux双系统</a></li><li class="chapter-item expanded "><a href="install-Manjaro.html"><strong aria-hidden="true">7.2.</strong> 配置安装Linux/Manjaro</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.</strong> 杂项</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">8.1.</strong> Django</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="django-database-separate.html"><strong aria-hidden="true">8.1.1.</strong> Django 多数据库联用</a></li><li class="chapter-item expanded "><a href="django-restfulramework-drf-haystack-whoosh.html"><strong aria-hidden="true">8.1.2.</strong> Django里使用全文搜索框架drf_haystack</a></li></ol></li><li class="chapter-item expanded "><a href="spring-boot-start.html"><strong aria-hidden="true">8.2.</strong> Spring Boot起步</a></li><li class="chapter-item expanded "><a href="compile-lantern.html"><strong aria-hidden="true">8.3.</strong> 编译安装不限流量的Lantern</a></li><li class="chapter-item expanded "><a href="hexo-github.html"><strong aria-hidden="true">8.4.</strong> Travis CI + Hexo部署你的博客</a></li></ol></li><li class="chapter-item expanded "><a href="admin/index.html">CMS</a></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">啸雨听风</h1>
+
+                    <div class="right-buttons">
+                                                <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<hr />
+<h2 id="title-julialang-学习"><a class="header" href="#title-julialang-学习">title: JuliaLang 学习</a></h2>
+<h1 id="julia-简介"><a class="header" href="#julia-简介">Julia 简介</a></h1>
+<p>Julia是一个新的高性能动态高级编程语言。语法和其他编程语言类似，易于其他语言用户学习。Julia 拥有丰富的函数库，提供了数字精度、精致的增幅器（sophisticated amplifier）和分布式并行运行方式。核心函数库等大多数库是由 Julia 编写，但也用成熟的 C 和 FORTRAN 库来处理线性代数、随机数产生和字符串处理等问题。</p>
+<!-- more -->
+<p>Julia 是个灵活的动态语言，适合科学和数值计算，性能可与传统静态类型语言媲美。</p>
+<p>Julia 与传统动态语言最大的区别是：</p>
+<ul>
+<li>核心语言很小；标准库是用 Julia 本身写的，如整数运算在内的基础运算</li>
+<li>完善的类型，方便构造对象和做类型声明</li>
+<li>基于参数类型进行函数重载</li>
+<li>参数类型不同，自动生成高效、专用的代码</li>
+<li>高性能，接近静态编译语言，如 C 语言</li>
+</ul>
+<h1 id="julia-核心语法"><a class="header" href="#julia-核心语法">Julia 核心语法</a></h1>
+<h2 id="注释"><a class="header" href="#注释">注释</a></h2>
+<pre><code class="language-julia"># 单行注释只需要一个井号
+#= 多行注释
+   只需要以 '#=' 开始 '=#' 结束
+   还可以嵌套.
+=#
+</code></pre>
+<h2 id="原始类型与操作符"><a class="header" href="#原始类型与操作符">原始类型与操作符</a></h2>
+<pre><code class="language-julia">####################################################
+## 1. 原始类型与操作符
+####################################################
+# Julia 中一切皆是表达式。
+
+# 这是一些基本数字类型.
+3               # =&gt; 3 (Int64)
+3.2             # =&gt; 3.2 (Float64)
+2 + 1im         # =&gt; 2 + 1im (Complex{Int64})
+2//3            # =&gt; 2//3 (Rational{Int64})
+
+# 支持所有的普通中缀操作符。
+1 + 1           # =&gt; 2
+8 - 1           # =&gt; 7
+10 * 2          # =&gt; 20
+35 / 5          # =&gt; 7.0
+5 / 2           # =&gt; 2.5  # 用 Int 除 Int 永远返回 Float
+div(5, 2)       # =&gt; 2    # 使用 div 截断小数点
+5 \ 35          # =&gt; 7.0
+2 ^ 2           # =&gt; 4    # 次方, 不是二进制 xor
+12 % 10         # =&gt; 2
+
+# 用括号提高优先级
+(1 + 3) * 2     # =&gt; 8
+
+# 二进制操作符
+~2              # =&gt; -3   # 非
+3 &amp; 5           # =&gt; 1    # 与
+2 | 4           # =&gt; 6    # 或
+2  4           # =&gt; 6    # 异或
+2 &gt;&gt;&gt; 1         # =&gt; 1    # 逻辑右移
+2 &gt;&gt; 1          # =&gt; 1    # 算术右移
+2 &lt;&lt; 1          # =&gt; 4    # 逻辑/算术 右移
+
+# 可以用函数 bits 查看二进制数。
+bits(12345)     # =&gt; &quot;0000000000000000000000000000000000000000000000000011000000111001&quot;
+bits(12345.0)   # =&gt; &quot;0100000011001000000111001000000000000000000000000000000000000000&quot;
+
+# 布尔值是原始类型
+true
+false
+
+# 布尔操作符
+!true           # =&gt; false
+!false          # =&gt; true
+1 == 1          # =&gt; true
+2 == 1          # =&gt; false
+1 != 1          # =&gt; false
+2 != 1          # =&gt; true
+1 &lt; 10          # =&gt; true
+1 &gt; 10          # =&gt; false
+2 &lt;= 2          # =&gt; true
+2 &gt;= 2          # =&gt; true
+
+# 比较可以串联
+1 &lt; 2 &lt; 3       # =&gt; true
+2 &lt; 3 &lt; 2       # =&gt; false
+
+# 字符串可以由 &quot; 创建
+&quot;This is a string.&quot;
+
+# 字符字面量可用 ' 创建
+'a'
+
+# 可以像取数组取值一样用 index 取出对应字符
+&quot;This is a string&quot;[1]   # =&gt; 'T'  # Julia 的 index 从 1 开始 :(
+# 但是对 UTF-8 无效,
+# 因此建议使用遍历器 (map, for loops, 等).
+
+#  可用于字符插值:
+&quot;2 + 2 = (2 + 2)&quot;      # =&gt; &quot;2 + 2 = 4&quot;
+# 可以将任何 Julia 表达式放入括号。
+
+# 另一种格式化字符串的方式是 printf 宏.
+@printf &quot;%d is less than %f&quot; 4.5 5.3 # 5 is less than 5.300000
+
+# 打印字符串很容易
+println(&quot;I'm Julia. Nice to meet you!&quot;)
+</code></pre>
+<h2 id="变量与集合"><a class="header" href="#变量与集合">变量与集合</a></h2>
+<pre><code class="language-julia">####################################################
+## 2. 变量与集合
+####################################################
+
+# 给变量赋值就是声明变量
+some_var = 5            # =&gt; 5
+some_var                # =&gt; 5
+
+# 访问未声明变量会抛出异常
+try
+    some_other_var      # =&gt; ERROR: some_other_var not defined
+catch e
+    println(e)
+end
+
+# 变量名需要以字母开头.
+# 之后任何字母，数字，下划线，叹号都是合法的。
+SomeOtherVar123! = 6    # =&gt; 6
+
+# 甚至可以用 unicode 字符
+☃ = 8                  # =&gt; 8
+# 用数学符号非常方便
+2 * π                   # =&gt; 6.283185307179586
+
+# 注意 Julia 的命名规约:
+#
+# * 变量名为小写，单词之间以下划线连接('\_')。
+#
+# * 类型名以大写字母开头，单词以 CamelCase 方式连接。
+#
+# * 函数与宏的名字小写，无下划线。
+#
+# * 会改变输入的函数名末位为 !。
+#   这类函数有时被称为 mutating functions 或 in-place functions.
+
+# 数组存储一列值，index 从 1 开始。
+a = Int64[]             # =&gt; 0-element Int64 Array
+
+# 一维数组可以以逗号分隔值的方式声明。
+b = [4, 5, 6]           # =&gt; 包含 3 个 Int64 类型元素的数组: [4, 5, 6]
+b[1]                    # =&gt; 4
+b[end]                  # =&gt; 6
+
+# 二维数组以分号分隔维度。
+matrix = [1 2; 3 4]     # =&gt; 2x2 Int64 数组: [1 2; 3 4]
+
+# 使用 push! 和 append! 往数组末尾添加元素
+push!(a,1)              # =&gt; [1]
+push!(a,2)              # =&gt; [1,2]
+push!(a,4)              # =&gt; [1,2,4]
+push!(a,3)              # =&gt; [1,2,4,3]
+append!(a,b)            # =&gt; [1,2,4,3,4,5,6]
+
+# 用 pop 弹出末尾元素
+pop!(b)                 # =&gt; 6 and b is now [4,5]
+
+# 可以再放回去
+push!(b,6)              # b 又变成了 [4,5,6].
+
+a[1] # =&gt; 1             #  永远记住 Julia 的 index 从 1 开始!
+
+# 用 end 可以直接取到最后索引. 可用作任何索引表达式
+a[end]                  # =&gt; 6
+
+# 还支持 shift 和 unshift
+shift!(a)               # =&gt; 返回 1，而 a 现在时 [2,4,3,4,5,6]
+unshift!(a,7)           # =&gt; [7,2,4,3,4,5,6]
+
+# 以叹号结尾的函数名表示它会改变参数的值
+arr = [5,4,6]           # =&gt; 包含三个 Int64 元素的数组: [5,4,6]
+sort(arr)               # =&gt; [4,5,6]; arr 还是 [5,4,6]
+sort!(arr)              # =&gt; [4,5,6]; arr 现在是 [4,5,6]
+
+# 越界会抛出 BoundsError 异常
+try
+    a[0]                # =&gt; ERROR: BoundsError() in getindex at array.jl:270
+    a[end+1]            # =&gt; ERROR: BoundsError() in getindex at array.jl:270
+catch e
+    println(e)
+end
+
+# 错误会指出发生的行号，包括标准库
+# 如果你有 Julia 源代码，你可以找到这些地方
+
+# 可以用 range 初始化数组
+a = [1:5]               # =&gt; 5-element Int64 Array: [1,2,3,4,5]
+
+# 可以切割数组
+a[1:3]                  # =&gt; [1, 2, 3]
+a[2:end]                # =&gt; [2, 3, 4, 5]
+
+# 用 splice! 切割原数组
+arr = [3,4,5]
+splice!(arr,2)          # =&gt; 4 ; arr 变成了 [3,5]
+
+# 用 append! 连接数组
+b = [1,2,3]
+append!(a,b)            # a 变成了 [1, 2, 3, 4, 5, 1, 2, 3]
+
+# 检查元素是否在数组中
+in(1, a)                # =&gt; true
+
+# 用 length 获得数组长度
+length(a)               # =&gt; 8
+
+# Tuples 是 immutable 的
+tup = (1, 2, 3)         # =&gt; (1,2,3) # an (Int64,Int64,Int64) tuple.
+tup[1]                  # =&gt; 1
+try:
+    tup[1] = 3          # =&gt; ERROR: no method setindex!((Int64,Int64,Int64),Int64,Int64)
+catch e
+    println(e)
+end
+
+# 大多数组的函数同样支持 tuples
+length(tup)             # =&gt; 3
+tup[1:2]                # =&gt; (1,2)
+in(2, tup)              # =&gt; true
+
+# 可以将 tuples 元素分别赋给变量
+a, b, c = (1, 2, 3)     # =&gt; (1,2,3)  # a is now 1, b is now 2 and c is now 3
+
+# 不用括号也可以
+d, e, f = 4, 5, 6       # =&gt; (4,5,6)
+
+# 单元素 tuple 不等于其元素值
+(1,) == 1               # =&gt; false
+(1) == 1                # =&gt; true
+
+# 交换值
+e, d = d, e             # =&gt; (5,4) # d is now 5 and e is now 4
+
+
+# 字典Dictionaries store mappings
+empty_dict = Dict()     # =&gt; Dict{Any,Any}()
+
+# 也可以用字面量创建字典
+filled_dict = [&quot;one&quot;=&gt; 1, &quot;two&quot;=&gt; 2, &quot;three&quot;=&gt; 3]
+# =&gt; Dict{ASCIIString,Int64}
+
+# 用 [] 获得键值
+filled_dict[&quot;one&quot;]      # =&gt; 1
+
+# 获得所有键
+keys(filled_dict)
+# =&gt; KeyIterator{Dict{ASCIIString,Int64}}([&quot;three&quot;=&gt;3,&quot;one&quot;=&gt;1,&quot;two&quot;=&gt;2])
+# 注意，键的顺序不是插入时的顺序
+
+# 获得所有值
+values(filled_dict)
+# =&gt; ValueIterator{Dict{ASCIIString,Int64}}([&quot;three&quot;=&gt;3,&quot;one&quot;=&gt;1,&quot;two&quot;=&gt;2])
+# 注意，值的顺序也一样
+
+# 用 in 检查键值是否已存在，用 haskey 检查键是否存在
+in((&quot;one&quot;, 1), filled_dict)     # =&gt; true
+in((&quot;two&quot;, 3), filled_dict)     # =&gt; false
+haskey(filled_dict, &quot;one&quot;)      # =&gt; true
+haskey(filled_dict, 1)          # =&gt; false
+
+# 获取不存在的键的值会抛出异常
+try
+    filled_dict[&quot;four&quot;]         # =&gt; ERROR: key not found: four in getindex at dict.jl:489
+catch e
+    println(e)
+end
+
+# 使用 get 可以提供默认值来避免异常
+# get(dictionary,key,default_value)
+get(filled_dict,&quot;one&quot;,4)        # =&gt; 1
+get(filled_dict,&quot;four&quot;,4)       # =&gt; 4
+
+# 用 Sets 表示无序不可重复的值的集合
+empty_set = Set()               # =&gt; Set{Any}()
+# 初始化一个 Set 并定义其值
+filled_set = Set(1,2,2,3,4)     # =&gt; Set{Int64}(1,2,3,4)
+
+# 添加值
+push!(filled_set,5)             # =&gt; Set{Int64}(5,4,2,3,1)
+
+# 检查是否存在某值
+in(2, filled_set)               # =&gt; true
+in(10, filled_set)              # =&gt; false
+
+# 交集，并集，差集
+other_set = Set(3, 4, 5, 6)         # =&gt; Set{Int64}(6,4,5,3)
+intersect(filled_set, other_set)    # =&gt; Set{Int64}(3,4,5)
+union(filled_set, other_set)        # =&gt; Set{Int64}(1,2,3,4,5,6)
+setdiff(Set(1,2,3,4),Set(2,3,5))    # =&gt; Set{Int64}(1,4)
+
+</code></pre>
+<h2 id="控制流"><a class="header" href="#控制流">控制流</a></h2>
+<pre><code class="language-julia">####################################################
+## 3. 控制流
+####################################################
+
+# 声明一个变量
+some_var = 5
+
+# 这是一个 if 语句，缩进不是必要的
+if some_var &gt; 10
+    println(&quot;some_var is totally bigger than 10.&quot;)
+elseif some_var &lt; 10    # elseif 是可选的.
+    println(&quot;some_var is smaller than 10.&quot;)
+else                    # else 也是可选的.
+    println(&quot;some_var is indeed 10.&quot;)
+end
+# =&gt; prints &quot;some var is smaller than 10&quot;
+
+
+# For 循环遍历
+# Iterable 类型包括 Range, Array, Set, Dict, 以及 String.
+for animal=[&quot;dog&quot;, &quot;cat&quot;, &quot;mouse&quot;]
+    println(&quot;animal is a mammal&quot;)
+    # 可用  将 variables 或 expression 转换为字符串into strings
+end
+# prints:
+#    dog is a mammal
+#    cat is a mammal
+#    mouse is a mammal
+
+# You can use 'in' instead of '='.
+for animal in [&quot;dog&quot;, &quot;cat&quot;, &quot;mouse&quot;]
+    println(&quot;animal is a mammal&quot;)
+end
+# prints:
+#    dog is a mammal
+#    cat is a mammal
+#    mouse is a mammal
+
+for a in [&quot;dog&quot;=&gt;&quot;mammal&quot;,&quot;cat&quot;=&gt;&quot;mammal&quot;,&quot;mouse&quot;=&gt;&quot;mammal&quot;]
+    println(&quot;&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1em;vertical-align:-0.25em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;a&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;(a[2])&quot;)
+end
+# prints:
+#    dog is a mammal
+#    cat is a mammal
+#    mouse is a mammal
+
+for (k,v) in [&quot;dog&quot;=&gt;&quot;mammal&quot;,&quot;cat&quot;=&gt;&quot;mammal&quot;,&quot;mouse&quot;=&gt;&quot;mammal&quot;]
+    println(&quot;&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.69444em;vertical-align:0em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot; style=&quot;margin-right:0.03148em;&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;a&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;v&quot;)
+end
+# prints:
+#    dog is a mammal
+#    cat is a mammal
+#    mouse is a mammal
+
+# While 循环
+x = 0
+while x &lt; 4
+    println(x)
+    x += 1  # x = x + 1
+end
+# prints:
+#   0
+#   1
+#   2
+#   3
+
+# 用 try/catch 处理异常
+try
+   error(&quot;help&quot;)
+catch e
+   println(&quot;caught it e&quot;)
+end
+# =&gt; caught it ErrorException(&quot;help&quot;)
+
+</code></pre>
+<h2 id="函数"><a class="header" href="#函数">函数</a></h2>
+<pre><code class="language-julia">####################################################
+## 4. 函数
+####################################################
+
+# 用关键字 'function' 可创建一个新函数
+#function name(arglist)
+#  body...
+#end
+function add(x, y)
+    println(&quot;x is x and y is y&quot;)
+
+    # 最后一行语句的值为返回
+    x + y
+end
+
+add(5, 6) # =&gt; 在 &quot;x is 5 and y is 6&quot; 后会打印 11
+
+# 还可以定义接收可变长参数的函数
+function varargs(args...)
+    return args
+    # 关键字 return 可在函数内部任何地方返回
+end
+# =&gt; varargs (generic function with 1 method)
+
+varargs(1,2,3)          # =&gt; (1,2,3)
+
+# 省略号 ... 被称为 splat.
+# 刚刚用在了函数定义中
+# 还可以用在函数的调用
+# Array 或者 Tuple 的内容会变成参数列表
+Set([1,2,3])            # =&gt; Set{Array{Int64,1}}([1,2,3]) # 获得一个 Array 的 Set
+Set([1,2,3]...)         # =&gt; Set{Int64}(1,2,3) # 相当于 Set(1,2,3)
+
+x = (1,2,3)             # =&gt; (1,2,3)
+Set(x)                  # =&gt; Set{(Int64,Int64,Int64)}((1,2,3)) # 一个 Tuple 的 Set
+Set(x...)               # =&gt; Set{Int64}(2,3,1)
+
+
+# 可定义可选参数的函数
+function defaults(a,b,x=5,y=6)
+    return &quot;a &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.69444em;vertical-align:0em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;d&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;x y&quot;
+end
+
+defaults('h','g')           # =&gt; &quot;h g and 5 6&quot;
+defaults('h','g','j')       # =&gt; &quot;h g and j 6&quot;
+defaults('h','g','j','k')   # =&gt; &quot;h g and j k&quot;
+try
+    defaults('h') # =&gt; ERROR: no method defaults(Char,)
+    defaults() # =&gt; ERROR: no methods defaults()
+catch e
+    println(e)
+end
+
+# 还可以定义键值对的参数
+function keyword_args(;k1=4,name2=&quot;hello&quot;)  # note the ;
+    return [&quot;k1&quot;=&gt;k1,&quot;name2&quot;=&gt;name2]
+end
+
+keyword_args(name2=&quot;ness&quot;)                  # =&gt; [&quot;name2&quot;=&gt;&quot;ness&quot;,&quot;k1&quot;=&gt;4]
+keyword_args(k1=&quot;mine&quot;)                     # =&gt; [&quot;k1&quot;=&gt;&quot;mine&quot;,&quot;name2&quot;=&gt;&quot;hello&quot;]
+keyword_args()                              # =&gt; [&quot;name2&quot;=&gt;&quot;hello&quot;,&quot;k1&quot;=&gt;4]
+
+# 可以组合各种类型的参数在同一个函数的参数列表中
+function all_the_args(normal_arg, optional_positional_arg=2; keyword_arg=&quot;foo&quot;)
+    println(&quot;normal arg: normal_arg&quot;)
+    println(&quot;optional arg: &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1.036108em;vertical-align:-0.286108em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathnormal&quot; style=&quot;margin-right:0.01968em;&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.15139200000000003em;&quot;&gt;&lt;span style=&quot;top:-2.5500000000000003em;margin-left:-0.01968em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mathnormal mtight&quot;&gt;p&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.286108em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathnormal&quot; style=&quot;margin-right:0.01968em;&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.151392em;&quot;&gt;&lt;span style=&quot;top:-2.5500000000000003em;margin-left:-0.01968em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mathnormal mtight&quot;&gt;a&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.15em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot; style=&quot;margin-right:0.02778em;&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot; style=&quot;margin-right:0.03588em;&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot; style=&quot;margin-right:0.02778em;&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot; style=&quot;margin-right:0.01968em;&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot; style=&quot;margin-right:0.03148em;&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot; style=&quot;margin-right:0.03588em;&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot; style=&quot;margin-right:0.02691em;&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot; style=&quot;margin-right:0.02778em;&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot; style=&quot;margin-right:0.02778em;&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot; style=&quot;margin-right:0.03588em;&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2777777777777778em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mrel&quot;&gt;:&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;keyword_arg&quot;)
+end
+
+all_the_args(1, 3, keyword_arg=4)
+# prints:
+#   normal arg: 1
+#   optional arg: 3
+#   keyword arg: 4
+
+# Julia 有一等函数
+function create_adder(x)
+    adder = function (y)
+        return x + y
+    end
+    return adder
+end
+
+# 这是用 &quot;stabby lambda syntax&quot; 创建的匿名函数
+(x -&gt; x &gt; 2)(3)                             # =&gt; true
+
+# 这个函数和上面的 create_adder 一模一样
+function create_adder(x)
+    y -&gt; x + y
+end
+
+# 你也可以给内部函数起个名字
+function create_adder(x)
+    function adder(y)
+        x + y
+    end
+    adder
+end
+
+add_10 = create_adder(10)
+add_10(3)                                   # =&gt; 13
+
+
+# 内置的高阶函数有
+map(add_10, [1,2,3])                        # =&gt; [11, 12, 13]
+filter(x -&gt; x &gt; 5, [3, 4, 5, 6, 7])         # =&gt; [6, 7]
+
+# 还可以使用 list comprehensions 替代 map
+[add_10(i) for i=[1, 2, 3]]                 # =&gt; [11, 12, 13]
+[add_10(i) for i in [1, 2, 3]]              # =&gt; [11, 12, 13]
+</code></pre>
+<h2 id="类型"><a class="header" href="#类型">类型</a></h2>
+<pre><code class="language-julia">####################################################
+## 5.  类型
+####################################################
+
+# Julia 有类型系统
+# 所有的值都有类型；但变量本身没有类型
+# 你可以用 `typeof` 函数获得值的类型
+typeof(5)                                   # =&gt; Int64
+
+# 类型是一等值
+typeof(Int64)                               # =&gt; DataType
+typeof(DataType)                            # =&gt; DataType
+# DataType 是代表类型的类型，也代表他自己的类型
+
+# 类型可用作文档化，优化，以及调度
+# 并不是静态检查类型
+
+# 用户还可以自定义类型
+# 跟其他语言的 records 或 structs 一样
+# 用 `type` 关键字定义新的类型
+
+# type Name
+#   field::OptionalType
+#   ...
+# end
+type Tiger
+  taillength::Float64
+  coatcolor # 不附带类型标注的相当于 `::Any`
+end
+
+# 构造函数参数是类型的属性
+tigger = Tiger(3.5,&quot;orange&quot;)                # =&gt; Tiger(3.5,&quot;orange&quot;)
+
+# 用新类型作为构造函数还会创建一个类型
+sherekhan = typeof(tigger)(5.6,&quot;fire&quot;)      # =&gt; Tiger(5.6,&quot;fire&quot;)
+
+# struct 类似的类型被称为具体类型
+# 他们可被实例化但不能有子类型
+# 另一种类型是抽象类型
+
+# abstract Name
+abstract Cat    # just a name and point in the type hierarchy
+
+# 抽象类型不能被实例化，但是可以有子类型
+# 例如，Number 就是抽象类型
+subtypes(Number) # =&gt; 6-element Array{Any,1}:
+                 #     Complex{Float16}
+                 #     Complex{Float32}
+                 #     Complex{Float64}
+                 #     Complex{T&lt;:Real}
+                 #     ImaginaryUnit
+                 #     Real
+subtypes(Cat)               # =&gt; 0-element Array{Any,1}
+
+# 所有的类型都有父类型; 可以用函数 `super` 得到父类型.
+typeof(5)                   # =&gt; Int64
+super(Int64)                # =&gt; Signed
+super(Signed)               # =&gt; Real
+super(Real)                 # =&gt; Number
+super(Number)               # =&gt; Any
+super(super(Signed))        # =&gt; Number
+super(Any)                  # =&gt; Any
+# 所有这些类型，除了 Int64, 都是抽象类型.
+
+# &lt;: 是类型继承操作符
+type Lion &lt;: Cat            # Lion 是 Cat 的子类型
+  mane_color
+  roar::String
+end
+
+# 可以继续为你的类型定义构造函数
+# 只需要定义一个同名的函数
+# 并调用已有的构造函数设置一个固定参数
+Lion(roar::String) = Lion(&quot;green&quot;,roar)
+# 这是一个外部构造函数，因为他再类型定义之外
+
+type Panther &lt;: Cat # Panther 也是 Cat 的子类型
+  eye_color
+  Panther() = new(&quot;green&quot;)
+  # Panthers 只有这个构造函数，没有默认构造函数
+end
+# 使用内置构造函数，如 Panther，可以让你控制
+# 如何构造类型的值
+# 应该尽可能使用外部构造函数而不是内部构造函数
+
+</code></pre>
+<h2 id="多分派"><a class="header" href="#多分派">多分派</a></h2>
+<pre><code class="language-julia">####################################################
+## 6.多分派
+####################################################
+
+# 在Julia中, 所有的具名函数都是类属函数
+# 这意味着他们都是有很大小方法组成的
+# 每个 Lion 的构造函数都是类属函数 Lion 的方法
+
+# 我们来看一个非构造函数的例子
+
+# Lion, Panther, Tiger 的 meow 定义为
+function meow(animal::Lion)
+  animal.roar # 使用点符号访问属性
+end
+
+function meow(animal::Panther)
+  &quot;grrr&quot;
+end
+
+function meow(animal::Tiger)
+  &quot;rawwwr&quot;
+end
+
+# 试试 meow 函数
+meow(tigger)                        # =&gt; &quot;rawwr&quot;
+meow(Lion(&quot;brown&quot;,&quot;ROAAR&quot;))         # =&gt; &quot;ROAAR&quot;
+meow(Panther())                     # =&gt; &quot;grrr&quot;
+
+# 再看看层次结构
+issubtype(Tiger,Cat)                # =&gt; false
+issubtype(Lion,Cat)                 # =&gt; true
+issubtype(Panther,Cat)              # =&gt; true
+
+# 定义一个接收 Cats 的函数
+function pet_cat(cat::Cat)
+  println(&quot;The cat says (meow(cat))&quot;)
+end
+
+pet_cat(Lion(&quot;42&quot;))                 # =&gt; prints &quot;The cat says 42&quot;
+try
+    pet_cat(tigger)                 # =&gt; ERROR: no method pet_cat(Tiger,)
+catch e
+    println(e)
+end
+
+# 单分派面向对象语言在调用一个方法时
+# 方法参数中一个参数会被特殊对待并用来决定哪一个方法
+# 而在Julia中, 所有参数类型都会被考虑到，即多分派
+
+# 让我们定义有多个参数的函数，好看看区别
+function fight(t::Tiger,c::Cat)
+  println(&quot;The (t.coatcolor) tiger wins!&quot;)
+end
+# =&gt; fight (generic function with 1 method)
+
+fight(tigger,Panther())             # =&gt; prints The orange tiger wins!
+fight(tigger,Lion(&quot;ROAR&quot;))          # =&gt; prints The orange tiger wins!
+
+# 让我们修改一下传入具体为 Lion 类型时的行为
+fight(t::Tiger,l::Lion) = println(&quot;The (l.mane_color)-maned lion wins!&quot;)
+# =&gt; fight (generic function with 2 methods)
+
+fight(tigger,Panther())             # =&gt; prints The orange tiger wins!
+fight(tigger,Lion(&quot;ROAR&quot;))          # =&gt; prints The green-maned lion wins!
+
+# 把 Tiger 去掉
+fight(l::Lion,c::Cat) = println(&quot;The victorious cat says (meow(c))&quot;)
+# =&gt; fight (generic function with 3 methods)
+
+fight(Lion(&quot;balooga!&quot;),Panther())   # =&gt; prints The victorious cat says grrr
+try
+  fight(Panther(),Lion(&quot;RAWR&quot;))     # =&gt; ERROR: no method fight(Panther,Lion)
+catch
+end
+
+# 在试试让 Cat 在前面
+fight(c::Cat,l::Lion) = println(&quot;The cat beats the Lion&quot;)
+# =&gt; Warning: New definition
+#    fight(Cat,Lion) at none:1
+# is ambiguous with
+#    fight(Lion,Cat) at none:2.
+# Make sure
+#    fight(Lion,Lion)
+# is defined first.
+#fight (generic function with 4 methods)
+
+# 警告说明了无法判断使用哪个 fight 方法
+fight(Lion(&quot;RAR&quot;),Lion(&quot;brown&quot;,&quot;rarrr&quot;)) # =&gt; prints The victorious cat says rarrr
+# 结果在老版本 Julia 中可能会不一样
+
+fight(l::Lion,l2::Lion) = println(&quot;The lions come to a tie&quot;)
+fight(Lion(&quot;RAR&quot;),Lion(&quot;brown&quot;,&quot;rarrr&quot;)) # =&gt; prints The lions come to a tie
+
+
+# Under the hood
+# 你还可以看看 llvm 以及生成的汇编代码
+
+square_area(l) = l * l              # square_area (generic function with 1 method)
+
+square_area(5) #25
+
+# 给 square_area 一个整形时发生什么
+code_native(square_area, (Int32,))
+    #       .section    __TEXT,__text,regular,pure_instructions
+    #   Filename: none
+    #   Source line: 1              # Prologue
+    #       push    RBP
+    #       mov RBP, RSP
+    #   Source line: 1
+    #       movsxd  RAX, EDI        # Fetch l from memory?
+    #       imul    RAX, RAX        # Square l and store the result in RAX
+    #       pop RBP                 # Restore old base pointer
+    #       ret                     # Result will still be in RAX
+
+code_native(square_area, (Float32,))
+    #       .section    __TEXT,__text,regular,pure_instructions
+    #   Filename: none
+    #   Source line: 1
+    #       push    RBP
+    #       mov RBP, RSP
+    #   Source line: 1
+    #       vmulss  XMM0, XMM0, XMM0  # Scalar single precision multiply (AVX)
+    #       pop RBP
+    #       ret
+
+code_native(square_area, (Float64,))
+    #       .section    __TEXT,__text,regular,pure_instructions
+    #   Filename: none
+    #   Source line: 1
+    #       push    RBP
+    #       mov RBP, RSP
+    #   Source line: 1
+    #       vmulsd  XMM0, XMM0, XMM0 # Scalar double precision multiply (AVX)
+    #       pop RBP
+    #       ret
+    #
+# 注意 只要参数中又浮点类型，Julia 就使用浮点指令
+# 让我们计算一下圆的面积
+circle_area(r) = pi * r * r     # circle_area (generic function with 1 method)
+circle_area(5)                  # 78.53981633974483
+
+code_native(circle_area, (Int32,))
+    #       .section    __TEXT,__text,regular,pure_instructions
+    #   Filename: none
+    #   Source line: 1
+    #       push    RBP
+    #       mov RBP, RSP
+    #   Source line: 1
+    #       vcvtsi2sd   XMM0, XMM0, EDI          # Load integer (r) from memory
+    #       movabs  RAX, 4593140240              # Load pi
+    #       vmulsd  XMM1, XMM0, QWORD PTR [RAX]  # pi * r
+    #       vmulsd  XMM0, XMM0, XMM1             # (pi * r) * r
+    #       pop RBP
+    #       ret
+    #
+
+code_native(circle_area, (Float64,))
+    #       .section    __TEXT,__text,regular,pure_instructions
+    #   Filename: none
+    #   Source line: 1
+    #       push    RBP
+    #       mov RBP, RSP
+    #       movabs  RAX, 4593140496
+    #   Source line: 1
+    #       vmulsd  XMM1, XMM0, QWORD PTR [RAX]
+    #       vmulsd  XMM0, XMM1, XMM0
+    #       pop RBP
+    #       ret
+</code></pre>
+<h1 id="julia-科学计算"><a class="header" href="#julia-科学计算">Julia 科学计算</a></h1>
+<h2 id="创建向量"><a class="header" href="#创建向量">创建向量</a></h2>
+<pre><code class="language-julia">A = [1 2 3]             # 行向量: size (1, n)
+A = [1 2 3]'            # 列向量: size (n, 1)
+
+A = [1; 2; 3]           # 一维数组: size (n, )
+# OR
+A = [1, 2, 3]
+
+A = j:k:n               # 从j到n的一个数组，步长为k
+A = linspace(1, 5, k)   # 步长固定的k个点(从1到5)
+</code></pre>
+<h2 id="创建矩阵"><a class="header" href="#创建矩阵">创建矩阵</a></h2>
+<pre><code class="language-julia">A = [1 2; 3 4]              # 创建一个矩阵
+A = zeros(2, 2)             # 2 x 2 全零矩阵
+A = ones(2, 2)              # 2 x 2 全一矩阵
+A = eye(2, 2)               # 2 x 2 单位矩阵
+A = diagm([1; 2; 3])        # 对角矩阵
+A = rand(2, 2)              # 均匀分布的随机数或矩阵
+A = randn(2, 2)             # 正态分布的随机数或矩阵
+</code></pre>
+<h2 id="矩阵和向量操作"><a class="header" href="#矩阵和向量操作">矩阵和向量操作</a></h2>
+<pre><code class="language-julia">A.'                             # 转置
+A'                              # 共轭转置
+
+A = [[1 2] [1 2]]               # 水平拼接
+# OR
+A = hcat([1 2], [1 2])
+
+A = [[1 2]; [1 2]]              # 垂直拼接
+# OR
+A = vcat([1 2], [1 2])
+
+A = reshape(1:10, 5, 2)         # 重塑 (到 5 行, 2 列)
+A[:]                            # 转换矩阵到向量
+flipdim(A, 1)                   # 上下翻转
+flipdim(A, 2)                   # 左右翻转
+repmat(A, 3, 4)                 # 重复拼接矩阵 (行向量 3 次,列向量 4 次)
+</code></pre>
+<h2 id="访问矩阵和向量的元素"><a class="header" href="#访问矩阵和向量的元素">访问矩阵和向量的元素</a></h2>
+<pre><code class="language-julia">A[2, 2]                         # 访问一个元素
+A[1:4, :]                       # 访问某行
+A[:, 1:4]                       # 访问某列
+A[[1, 2, 4], :]                 # 移除一行
+diag(A)                         # 矩阵的对角元素
+nrow, ncol = size(A)            # 获取矩阵尺寸
+
+</code></pre>
+<h2 id="数学运算"><a class="header" href="#数学运算">数学运算</a></h2>
+<pre><code class="language-julia">dot(A, B)           # 点积
+A * B               # 矩阵乘法
+A .* B              # 元素乘法
+A^2                 # 矩阵乘方
+
+A.^2                # 矩阵元素乘法
+
+inv(A)              # 矩阵的逆
+# OR
+A^(-1)      
+
+det(A)              # 行列式
+val, vec = eig(A)   # 特征值和特征向量
+norm(A)             # 欧几里得范数
+A\b                 # 解决线性问题  Ax=b  (A 行列数相同)
+A\b                 # 解决最小二乘问题  Ax=b  (A 行列的同)
+</code></pre>
+<h2 id="sum--max--min"><a class="header" href="#sum--max--min">Sum / max / min</a></h2>
+<pre><code class="language-julia">sum(A, 1)           # 每一列   Sum / max / min 
+maximum(A, 1)       
+minimum(A, 1)
+
+sum(A, 2)           # 每一行   Sum / max / min
+maximum(A, 2)
+minimum(A, 2)
+
+sum(A)              # 整个矩阵 Sum / max / min
+maximum(A)
+minimum(A)
+
+cumsum(A, 1)        # 第1维度：每一行累积 sum / max / min
+cummax(A, 1)
+cummin(A, 1)
+
+cumsum(A, 2)        # 第2维度：每一列累积 sum / max / min
+cummax(A, 2)
+cummin(A, 2)
+
+cumsum(A, k)        # 第K维    sum / max / min
+cummax(A, k)
+cummin(A, k)
+</code></pre>
+<h1 id="线性规划"><a class="header" href="#线性规划">线性规划</a></h1>
+<pre><code class="language-julia">using JuMP
+using Mosek
+# using Plots
+# theme(:juno)
+
+#==
+max z = 72 * x1 + 64 * x2     (1)
+   s.t. x1 + x2 &lt;= 50         (2)
+ 12 * x1 + 8 * x2 &lt;= 480      (3)
+       3*x1 &lt;= 100            (4)
+     x1 &gt;= 0, x2 &gt;= 0         (5)
+==#
+
+# 定义优化模型
+m = Model(solver = MosekSolver())
+
+# 定义变量
+@variable(m, x1 &gt;= 0)       # (5)
+@variable(m, x2 &gt;= 0)
+
+# 定义约束
+@constraint(m, milk ,x1 + x2 &lt;= 50)             # (2)
+@constraint(m, time, 12 * x1 + 8 * x2 &lt;= 480)   # (3)
+@constraint(m, cpct, 3 * x1 &lt;= 100)             # (4)
+
+# 定义求解目标
+# 这里是最大化目标，使用Max，同理可使用Min
+@objective(m, Max, 72 * x1 + 64 * x2)           # (1)
+
+# 求解问题
+status = solve(m)           # Optimal 全局最优解
+
+print(m)
+#== 输出结果
+Max 72 x1 + 64 x2
+Subject to
+ x1 + x2 ≤ 50
+ 12 x1 + 8 x2 ≤ 480
+ 3 x1 ≤ 100
+ x1 ≥ 0
+ x2 ≥ 0
+==#
+
+# 目标优化后得到的最大值
+getobjectivevalue(m)  # 3360
+
+# 获取最优化时候的变量值
+getvalue(x1)          # 20
+getvalue(x2)          # 30
+
+# 获取对偶解，可以看作是优化过程中的效益
+getdual(milk)         # 48
+getdual(time)         # 2
+getdual(cpct)         # 0
+</code></pre>
+<h1 id="微分方程"><a class="header" href="#微分方程">微分方程</a></h1>
+<p>TODO</p>
+<h1 id="julia-pro"><a class="header" href="#julia-pro">Julia Pro</a></h1>
+<h2 id="安装"><a class="header" href="#安装">安装</a></h2>
+<pre><code class="language-bash">docker pull juliacomputing/juliapro:lates
+</code></pre>
+<h2 id="用法"><a class="header" href="#用法">用法</a></h2>
+<p>开启交互式命令行:     <code>docker run -it juliacomputing/juliapro:latest</code></p>
+<p>开启Jupyter Notebook: <code>docker run -it -p 8888:8888 --entrypoint jupyter_notebook juliacomputing/juliapro:latest</code></p>
+<p>使用企业版本:         <code>docker run -it --entrypoint julia juliacomputing/juliapro:latest -e &quot;println(1+2)&quot;</code></p>
+<p>打开命令行:           <code>docker run -it --entrypoint bash juliacomputing/juliapro:latest</code></p>
+<h2 id="容器信息"><a class="header" href="#容器信息">容器信息</a></h2>
+<p>JuliaPro 安装路径: /juliapro/bin</p>
+<p>账户: juliauser, 默认密码: juliauser</p>
+<h1 id="一些推荐的库"><a class="header" href="#一些推荐的库">一些推荐的库</a></h1>
+<p>数据表格：</p>
+<ul>
+<li>DataFrames.jl</li>
+</ul>
+<p>图表绘制：</p>
+<ul>
+<li>Plots.jl</li>
+<li>Gadfly.jl</li>
+<li>VegaLite.jl</li>
+</ul>
+<p>语言交互：</p>
+<ul>
+<li>Cxx.jl</li>
+<li>PyCall.jl</li>
+</ul>
+<p>深度学习：</p>
+<ul>
+<li>Flux.jl</li>
+<li>Knet.jl</li>
+<li>Mocha.jl</li>
+</ul>
+<p>数值微分：</p>
+<ul>
+<li>JuMP.jl</li>
+<li>DifferentialEquations.jl</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="nasm-tutorial.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="boost-python.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="nasm-tutorial.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="boost-python.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+                <script type="text/javascript" src="mermaid.min.js"></script>
+                <script type="text/javascript" src="mermaid-init.js"></script>
+        
+        
+    </body>
+</html>

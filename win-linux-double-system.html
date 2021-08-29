@@ -1,0 +1,260 @@
+<!DOCTYPE HTML>
+<html lang="cn" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>安装Windows和Linux双系统 - 啸雨听风</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="favicon.svg">
+                        <link rel="shortcut icon" href="favicon.png">
+                <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+                <link rel="stylesheet" href="css/print.css" media="print">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">目录</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 形式语言与自动机</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="FLA-Base.html"><strong aria-hidden="true">1.1.</strong> 形式语言与自动机基础</a></li><li class="chapter-item expanded "><a href="FLA-Regular.html"><strong aria-hidden="true">1.2.</strong> 形式语言与自动机之正则语言</a></li><li class="chapter-item expanded "><a href="FLA-PDA.html"><strong aria-hidden="true">1.3.</strong> 形式语言与自动机之上下文无关语言</a></li><li class="chapter-item expanded "><a href="BNF-EBNF.html"><strong aria-hidden="true">1.4.</strong> BNF和EBNF的含义及其用法</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 算法设计与分析</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="Algorithms-Analysis.html"><strong aria-hidden="true">2.1.</strong> 算法之算法分析</a></li><li class="chapter-item expanded "><a href="Algorithms-Greedy.html"><strong aria-hidden="true">2.2.</strong> 算法之贪心法</a></li><li class="chapter-item expanded "><a href="Algorithms-DC.html"><strong aria-hidden="true">2.3.</strong> 算法之分治法</a></li><li class="chapter-item expanded "><a href="Algorithms-DP.html"><strong aria-hidden="true">2.4.</strong> 算法之动态规划</a></li><li class="chapter-item expanded "><a href="Algorithms-Search.html"><strong aria-hidden="true">2.5.</strong> 算法之搜索策略</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> 机器学习</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="ML-prepare-math.html"><strong aria-hidden="true">3.1.</strong> 机器学习-数学预备知识</a></li><li class="chapter-item expanded "><a href="ML-decision-tree.html"><strong aria-hidden="true">3.2.</strong> 机器学习-决策树</a></li><li class="chapter-item expanded "><a href="ML-LogisticRegression.html"><strong aria-hidden="true">3.3.</strong> 机器学习-逻辑回归</a></li><li class="chapter-item expanded "><a href="ML-LinnerModel.html"><strong aria-hidden="true">3.4.</strong> 机器学习-线性模型</a></li><li class="chapter-item expanded "><a href="ML-GMM-Kmeans.html"><strong aria-hidden="true">3.5.</strong> 机器学习-GMM模型与EM算法</a></li><li class="chapter-item expanded "><a href="ML-PCA.html"><strong aria-hidden="true">3.6.</strong> 机器学习-主成分分析</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 软件构造</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="SC-Base.html"><strong aria-hidden="true">4.1.</strong> 软件构造基础</a></li><li class="chapter-item expanded "><a href="SC-concept.html"><strong aria-hidden="true">4.2.</strong> 软件构造-概念辨析</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 计算机网络</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="about-net.html"><strong aria-hidden="true">5.1.</strong> 计算机网络基本概念</a></li><li class="chapter-item expanded "><a href="linux-socket.html"><strong aria-hidden="true">5.2.</strong> Linux Socket编程</a></li><li class="chapter-item expanded "><a href="wireshark.html"><strong aria-hidden="true">5.3.</strong> Wireshark解决权限问题</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> 编程语言</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">6.1.</strong> NASM</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="using-nasm.html"><strong aria-hidden="true">6.1.1.</strong> NASM的安装与使用</a></li><li class="chapter-item expanded "><a href="nasm-tutorial.html"><strong aria-hidden="true">6.1.2.</strong> NASM 教程 -- 从HelloWorld说开去</a></li></ol></li><li class="chapter-item expanded "><a href="julia-learn.html"><strong aria-hidden="true">6.2.</strong> JuliaLang 学习</a></li><li class="chapter-item expanded "><a href="boost-python.html"><strong aria-hidden="true">6.3.</strong> Boost::Python 教程</a></li><li class="chapter-item expanded "><a href="latex-circuitikz.html"><strong aria-hidden="true">6.4.</strong> Latex-Circuitikz绘制电路图</a></li><li class="chapter-item expanded "><a href="why-is-INT-MAX-1.html"><strong aria-hidden="true">6.5.</strong> 为什么是-INT_MAX-1</a></li><li class="chapter-item expanded "><a href="pandoc-markdown.html"><strong aria-hidden="true">6.6.</strong> Pandoc's 的 Markdown 语法拓展</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> 操作系统</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="win-linux-double-system.html" class="active"><strong aria-hidden="true">7.1.</strong> 安装Windows和Linux双系统</a></li><li class="chapter-item expanded "><a href="install-Manjaro.html"><strong aria-hidden="true">7.2.</strong> 配置安装Linux/Manjaro</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.</strong> 杂项</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">8.1.</strong> Django</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="django-database-separate.html"><strong aria-hidden="true">8.1.1.</strong> Django 多数据库联用</a></li><li class="chapter-item expanded "><a href="django-restfulramework-drf-haystack-whoosh.html"><strong aria-hidden="true">8.1.2.</strong> Django里使用全文搜索框架drf_haystack</a></li></ol></li><li class="chapter-item expanded "><a href="spring-boot-start.html"><strong aria-hidden="true">8.2.</strong> Spring Boot起步</a></li><li class="chapter-item expanded "><a href="compile-lantern.html"><strong aria-hidden="true">8.3.</strong> 编译安装不限流量的Lantern</a></li><li class="chapter-item expanded "><a href="hexo-github.html"><strong aria-hidden="true">8.4.</strong> Travis CI + Hexo部署你的博客</a></li></ol></li><li class="chapter-item expanded "><a href="admin/index.html">CMS</a></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">啸雨听风</h1>
+
+                    <div class="right-buttons">
+                                                <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<hr />
+<h2 id="title-安装windows和linux双系统"><a class="header" href="#title-安装windows和linux双系统">title: 安装Windows和Linux双系统</a></h2>
+<h1 id="简介"><a class="header" href="#简介">简介</a></h1>
+<p>相信很多人都想尝试一下传说中的Linux，但是不能下定决心把Windows卸载掉安装Linux，我们可以采用一种折中的方式让大家体验到Linux的魅力，那就是安装双系统。</p>
+<!-- more -->
+<h1 id="制作安装盘"><a class="header" href="#制作安装盘">制作安装盘</a></h1>
+<p>估计现在用光盘的也不多了，我们这里采用U盘来制作。
+下载Linux安装盘，我这里采用的是<a href="https://manjaro.org/get-manjaro/">Manjaro</a>，
+下面是一些流行的Linux发行版：</p>
+<ul>
+<li><a href="https://manjaro.org/get-manjaro/">Manjaro</a></li>
+<li><a href="https://www.linuxmint.com/download.php">Mint</a></li>
+<li><a href="http://www.ubuntu.org.cn/download/desktop">Ubuntu</a></li>
+<li><a href="https://www.centos.org/download/">CentOS</a></li>
+</ul>
+<p>下载**<a href="https://sourceforge.net/projects/win32diskimager/">ImageWriter For Windows</a>**，我们将使用它来制作安装盘。
+选择DD模式，选择你的U盘和刚才下载下来的Linux安装盘，点击刻录，然后等待制作完成即可。</p>
+<p><strong>注意： 这里你U盘的数据将会被全部清空，需要再次使用时需要重新格式化</strong></p>
+<h1 id="关闭bios的secure-boot"><a class="header" href="#关闭bios的secure-boot">关闭BIOS的Secure Boot</a></h1>
+<p>一般是在开机时按 <strong>F2</strong> 键即可进入BIOS设置界面，在Secure选项卡中将Secure Boot选项改为Disabled即可。</p>
+<h1 id="设置u盘启动"><a class="header" href="#设置u盘启动">设置U盘启动</a></h1>
+<p>开机时按下 <strong>F9</strong> 即会出现启动选项卡，选择你的U盘，按下回车即可进入。</p>
+<p>下面是一些常见品牌进入启动选项卡的按键：</p>
+<table><thead><tr><th>品牌</th><th>按键</th></tr></thead><tbody>
+<tr><td>DELL</td><td>F12</td></tr>
+<tr><td>联想</td><td>F12</td></tr>
+<tr><td>华硕</td><td>ESC</td></tr>
+<tr><td>惠普</td><td>F9</td></tr>
+</tbody></table>
+<h2 id="关于dell"><a class="header" href="#关于dell">关于DELL</a></h2>
+<p>昨天给室友安装Linux，有两台笔记本都是DELL的，设置U盘启动比较怪，需要自己添加U盘启动项：
+在 <strong>BIOS界面</strong> 的Boot选项卡中选择添加启动项（一般在这个界面你会见到有Windows boot loader之类的东西），选择你的U盘，他会让你选择路径，大概是这个路径 <em>EFI/grubx64.efi</em> ，
+然后就可以进入了。</p>
+<h1 id="安装系统"><a class="header" href="#安装系统">安装系统</a></h1>
+<p>有的人会问怎么腾出来给Linux用的空间啊，可以用Windows下的磁盘分区管理器压缩空间，也可以使用Linux下的Gparted，或者Manjaro中的partitionmanager。
+<strong>可能需要用到Root权限，在终端中输入SU，而后输入Gpart或者partitionmanager即可</strong></p>
+<h2 id="manjaro"><a class="header" href="#manjaro">Manjaro</a></h2>
+<p>启动时选择第二项boot（non-free),Manjaro自带的驱动精灵会帮你安装好所需驱动，笔记本双显卡则会帮你安装bumblebee。</p>
+<h2 id="关于分区"><a class="header" href="#关于分区">关于分区</a></h2>
+<p>不得不讲一下分区的问题，要不然可能会出现错误。</p>
+<ol>
+<li>
+<p>swap交换空间，这个也就是虚拟内存的地方，选择主分区和空间起始位置。如果你给Ubuntu系统分区容量足够的话，最好是能给到你物理内存的2倍大小，像我8GB内存，就可以给个16GB的空间给它，这个看个人使用情况，太小也不好，太大也没用。（其实我只给了8GB，没什么问题）</p>
+</li>
+<li>
+<p>新建efi系统分区，格式为Fat32,设置挂载点为 <strong>boot/efi</strong> ，设置标识为 <strong>esp</strong>，有的人硬盘上已经有efi分区了，可以直接挂载上去。</p>
+</li>
+<li>
+<p>最后，挂载“/”，类型为EXT4日志文件系统。</p>
+</li>
+</ol>
+<h2 id="安装grub2"><a class="header" href="#安装grub2">安装Grub2</a></h2>
+<p>Mangaro安装好之后，选择现在进入Manjaro，单击退出即可进入Manjaro，这个时候重启，十有八九你是进入不了Manjaro了，只会进入Windows，我们需要重写MBR，在终端下输入如下命令：</p>
+<pre><code class="language-bash">sudo grub-install /dev/sda
+grub-mkconfig -o /boot/grub/grub.cfg
+</code></pre>
+<p>即可完成安装。</p>
+<h2 id="如果重启了怎么办"><a class="header" href="#如果重启了怎么办">如果重启了怎么办？</a></h2>
+<p>使用用Manjaro的安装盘，再次进入安装初始界面，选择倒数第二个选项，大概是EFI什么的，选中里面的grubx64.efi，进入grub2引导界面，选择Manjaro即可进入系统。</p>
+<h2 id="manjaro-1"><a class="header" href="#manjaro-1">Manjaro</a></h2>
+<p>如果你和我做了同样的选择，安装的是Manjaro的话，安装后配置可以参照我的另一篇博客:{% post_link install-Manjaro %}</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="pandoc-markdown.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="install-Manjaro.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="pandoc-markdown.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="install-Manjaro.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+                <script type="text/javascript" src="mermaid.min.js"></script>
+                <script type="text/javascript" src="mermaid-init.js"></script>
+        
+        
+    </body>
+</html>
